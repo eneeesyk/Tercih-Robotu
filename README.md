@@ -1,1 +1,0 @@
-# Tercih-Robotu
