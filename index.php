@@ -42,7 +42,7 @@
                         echo "<select name='uniName'>";
                         echo "<option selected disabled>Universite Seciniz.</option>";
                         while($row = mysqli_fetch_array($result)){    
-                            echo "<option value=''>".$row['uni_name']."</option>";
+                            echo "<option>".$row['uni_name']."</option>";
                         }
                         echo '</select>';
                         mysqli_free_result($result);
@@ -62,7 +62,7 @@
                     echo "<select name='facultyName'>";
                     echo "<option selected disabled>Fakulte Seciniz.</option>";
                     while($row = mysqli_fetch_array($result)){    
-                        echo "<option value=''>".$row['faculty_name']."</option>";
+                        echo "<option>".$row['faculty_name']."</option>";
                     }
                     echo '</select>';
                     mysqli_free_result($result);
@@ -75,17 +75,27 @@
         ?></div>
    </div>
    
-    <input type="submit" name='submission' value='Gonder'>
+    <input type="submit" name='submit' value='Gonder'>
     <br>
     <?php
-    if(isset($_POST['submission'])){
-        $getFac = $_POST['facultyName'];
-        $getUni = $_POST['uniName'];
 
-        echo "University: " . $getUni . "<br>";
-        echo "Faculty: " . $getFac . "<br>";
+if(isset($_POST['submit'])){
+    if(!empty($_POST['uniName'])) {
+        $selected = $_POST['uniName'];
+        echo 'You have chosen: ' . $selected . '<br>';
+    } else {
+        echo 'Please select the value.';
     }
-    
+    }
+
+    if(!empty($_POST['facultyName'])) {
+        $selected2 = $_POST['facultyName'];
+        echo 'You have chosen: ' . $selected2 . '<br>';
+    } else {
+        echo 'Please select the value.';
+    }
+
+
     ?>
     </form>
 </div>
