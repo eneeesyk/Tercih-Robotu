@@ -83,7 +83,14 @@ for i in deneme1_sheet.iter_rows():
     for j in deneme2_sheet.iter_rows():
         if j[2].value==fac_name:
             deneme1_sheet.cell(row=row_number, column=4).value = j[3].value
+
+
 deneme1.save("deneme3.xlsx")
+deneme3=openpyxl.load_workbook("deneme3.xlsx")
+deneme3_sheet=deneme3['Sayfa1']
+deneme3_sheet.delete_cols(idx=1,amount=2)
+
+deneme3.save("faculty.xlsx")
 #worksheet.write_formula('A2','=VLOOKUP("İstanbul Medipol Üni ","H1:I1",2,FALSE')
 ##ws['A2']="=VLOOKUP(C2;H:I;2;0)"
 #ws['A2']="=SUM(I2:I225)"
