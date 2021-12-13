@@ -1,7 +1,7 @@
 # import xlsxwriter module
 import xlsxwriter
 import pandas as pd
-
+import openpyxl
 
 def merge():
 
@@ -14,7 +14,7 @@ def merge():
              "uni_id"]].merge(f2[["faculty_name", "faculty_name_id"]], right_index=True, left_index=True)
 
     # creating a new file
-    f3.to_excel("uni_fac_id.xls", index=False)
+    f3.to_excel("uni_fac_id.xlsx", index=False)
 
 
 def generate_id(lst):
@@ -42,7 +42,7 @@ def excel_write(filename, content, **kwargs):
     row = 1
     column = 0
 
-    if filename != "uni_faculty_name.xls":
+    if filename != "uni_faculty_name.xlsx":
         id = generate_id(content)
 
         # ID
@@ -63,7 +63,7 @@ def excel_write(filename, content, **kwargs):
             column += 1
 
     row = 1
-    if filename != "uni_faculty_name.xls":
+    if filename != "uni_faculty_name.xlsx":
         column = 1
     else:
         column = 0

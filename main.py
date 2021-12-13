@@ -70,15 +70,15 @@ DESC = DESC[2:]
 
 excel_writer.excel_write("university.xls", UNIVERSITY_LIST, title="uni_id", title2="uni_name")
 excel_writer.excel_write("faculty_name.xls", FACULTY_LIST, title="faculty_name_id", title2="faculty_name")
-excel_writer.excel_write("uni_faculty_name.xls", UNI_NAME, title="uni_name", title2="faculty_name", content2=FACULTY_NAME)
+excel_writer.excel_write("uni_faculty_name.xlsx", UNI_NAME, title="uni_name", title2="faculty_name", content2=FACULTY_NAME)
 excel_writer.merge()
 # excel_writer.excel_write_fk("faculty.xls", id, id2, title="faculty_id", title2="uni_id")
 
 
 # TODO EXCELI YAZ
 
-deneme1=openpyxl.load_workbook("uni_faculty_name.xls")  #deneme1=uni_fac_name
-deneme2=openpyxl.load_workbook("uni_fac_id.xls")           #deneme2=uni_fac_id
+deneme1=openpyxl.load_workbook("uni_faculty_name.xlsx")  #deneme1=uni_fac_name
+deneme2=openpyxl.load_workbook("uni_fac_id.xlsx")           #deneme2=uni_fac_id
 
 deneme1_sheet=deneme1['Sheet1']
 deneme2_sheet=deneme2['Sheet1']
@@ -87,7 +87,8 @@ for i in deneme1_sheet.iter_rows():
     uni_name=i[0].value
     fac_name=i[1].value
     row_number=i[0].row
-    row_number2=i[1].row
+    print(i[0])
+    row_number=i[1].row
 
     for j in deneme2_sheet.iter_rows():
         if j[0].value== uni_name:
@@ -103,7 +104,7 @@ for i in deneme1_sheet.iter_rows():
 
 deneme1.save("deneme3.xlsx")
 deneme3=openpyxl.load_workbook("deneme3.xlsx")
-deneme3_sheet=deneme3['Sayfa1']
+deneme3_sheet=deneme3['Sheet1']
 deneme3_sheet.delete_cols(idx=1,amount=2)
 
 deneme3.save("faculty.xlsx")
