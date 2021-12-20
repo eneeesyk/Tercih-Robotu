@@ -21,7 +21,7 @@
 <?php
             define('DB_HOST', 'localhost');
             define('DB_USERNAME', 'root');
-            define('DB_PASSWORD', 'root');
+            define('DB_PASSWORD', '');
             define('DB_NAME', 'tercihrobotu');
 
 
@@ -44,7 +44,7 @@
                         Universite: 
                         </div>
                             <?php
-                                $sql = "SELECT uni_name FROM university";
+                                $sql = "SELECT uni_name FROM sayfa2";
                                 if ($result = mysqli_query($conn, $sql)) {
                                     if(mysqli_num_rows($result) > 0) {
                                         echo '<div class="btn-group bootstrap-select show-tick ng-pristine ng-untouched ng-valid ng-empty">';
@@ -181,6 +181,68 @@
         ?>
         </div>
     </form>
+
+
+<div>
+
+    <table>
+        <tbody>
+            <tr>
+                <th width="10%">Program Kodu</th>
+                <th width="16%" >Üniversite</th>
+                <th width="16%" >Bölüm</th>
+                <th width="8%" >Puan Türü</th>
+                <th width="10%" >Taban Puan 2020</th>
+                <th width="10%" >Taban Puan 2019</th>
+                <th width="10%" >Taban Sıralama 2020</th>
+                <th width="10%" >Taban Sıralama 2019</th>
+                <th width="10%">Ekle</th>
+            </tr>
+
+            <?php 
+
+                //database içindeki min_point(2020) şeklinde tutulan veriler değiştirilmiştir. 
+                $sql3 = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2";
+                
+                if ($result = mysqli_query($conn, $sql3)) {
+
+                    if(mysqli_num_rows($result) > 0) {
+                        
+                        while($row = mysqli_fetch_array($result)){    
+                            
+                            echo "</tr>".
+
+                            "<td>".$row['program_code']."</td>".
+                            "<td>".$row['uni_name']."</td>".
+                            "<td>".$row['department']."</td>".
+                            "<td>".$row['point_type']."</td>".
+                            "<td>".$row['min_point_2020']."</td>".
+                            "<td>".$row['min_point_2019']."</td>".
+                            "<td>".$row['success_order_2020']."</td>".
+                            "<td>".$row['success_order_2019']."</td>"     
+
+                            ."</tr>";
+                            
+                        
+                            
+
+                        }
+                        
+                        mysqli_free_result($result);
+                    }else {
+                        echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                    }
+                }else {
+                    echo "ERROR: Could not execute $sql2" . mysqli_error($conn);
+                }
+
+  
+            ?>
+
+        </tbody>
+    </table>
+
+</div>
 
 
 </body>
