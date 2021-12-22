@@ -39,17 +39,17 @@ CREATE TABLE `sayfa2` (
   `point_type` varchar(3) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `quota(2021)` int DEFAULT NULL,
   `quota(2020)` int DEFAULT NULL,
-  `min_point(2020)` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `min_point(2019)` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `success_order(2020)` varchar(7) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `success_order(2019)` varchar(6) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+  `min_point_2020` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `min_point_2019` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `success_order_2020` varchar(7) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `success_order_2019` varchar(6) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `sayfa2`
 --
 
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (203110477, 'Vakıf', 'İstanbul', 'İstanbul Medipol Üni', 'Tıp Fak', 'Tıp Fak', 'Burslu', 'İng', 'SAY', 10, 10, '554,27566', '547,58683', '36', '77'),
 (203910699, 'Vakıf', 'İstanbul', 'Koç Üni', 'Tıp Fak', 'Tıp Fak', 'Burslu', 'İng', 'SAY', 8, 14, '553,8035', '546,37277', '47', '108'),
 (202210329, 'Vakıf', 'İstanbul', 'İstanbul 29 Mayıs Üni', 'İlahiyat Fak', 'İlahiyat', 'Burslu', NULL, 'SÖZ', 6, 5, '516,51507', '508,94714', '81', '110'),
@@ -354,7 +354,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (207610354, 'Vakıf', 'İstanbul', 'Biruni Üni', 'Tıp Fak', 'Tıp Fak', 'Burslu', NULL, 'SAY', 14, 12, '545,04138', '501,1995', '7990', '6641'),
 (111010223, 'Devlet', 'İstanbul', 'Sağlık Bilimleri Üni', 'Gülhane Tıp Fak', 'Gülhane Tıp', NULL, NULL, 'SAY', 150, 150, '512,379049', '494,02006', '8010', '8878'),
 (203910142, 'Vakıf', 'İstanbul', 'Koç Üni', 'İnsani Bilimler ve Edebiyat Fak', 'Psikoloji', '%50 İnd', 'İng', 'EA', 5, 19, '512,390685', '427,75465', '8100', '8603');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (103111079, 'Devlet', 'İzmir', 'Dokuz Eylül Üni', 'Buca Eğitim Fak', 'Özel Eğitim Öğr', NULL, NULL, 'SÖZ', 80, 80, '544,78499', '413,0705', '8140', '8515'),
 (204110456, 'Vakıf', 'İstanbul', 'Maltepe Üni', 'Eğitim Fak', 'İngilizce Öğr', 'Burslu', 'İng', 'DİL', 8, 8, '510,30397', '426,69487', '8170', '8831'),
 (109610013, 'Devlet', 'İstanbul', 'Türk-Alman Üni', 'Hukuk Fak', 'Hukuk Fak', NULL, NULL, 'EA', 100, 80, '554,27584', '419,78843', '8210', '12151'),
@@ -663,7 +663,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (111010241, 'Devlet', 'Ankara', 'İçişleri Bakanlığı Ve Milli Savunma Bakanlığı Adına Sağlık Bilimleri Üninde Eğitim', 'Gülhane Tıp Fak', 'Gülhane Tıp', NULL, NULL, 'SAY', 10, 10, '512,809581', '468,26343', '15600', '19902'),
 (202510307, 'Vakıf', 'İstanbul', 'İstanbul Bilgi Üni', 'İşletme Fak', 'Uluslararası Finans', 'Burslu', 'İng', 'EA', 8, 7, '544,78517', '402,82926', '15600', '23358'),
 (205710553, 'Vakıf', 'Ankara', 'Türk Hava Kurumu Üni', 'Havacılık ve Uzay Bilimleri Fak', 'Uçak Müh', 'Burslu', 'İng', 'SAY', 9, 10, '510,30415', '476,38122', '15600', '15960');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (107210508, 'Devlet', 'İstanbul', 'Marmara Üni', 'Mühendislik Fak', 'Bilgisayar Müh', NULL, 'İng', 'SAY', 75, 75, '554,27602', '469,84356', '15700', '19082'),
 (107310049, 'Devlet', 'Burdur', 'Burdur Mehmet Akif Ersoy Üni', 'Eğitim Fak', 'İngilizce Öğr', NULL, NULL, 'DİL', 60, 60, '553,80386', '390,10361', '15700', '17284'),
 (100890064, 'Devlet', 'Aksaray', 'Aksaray Üni', 'Eğitim Fak', 'Özel Eğitim Öğr', NULL, NULL, 'SÖZ', 60, 60, '516,51543', '395,53111', '15800', '17937'),
@@ -972,7 +972,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (203851892, 'Vakıf', 'Nevşehir', 'Kapadokya Üni', 'Beşeri Bilimler Fak', 'İngilizce Mütercim ve Tercümanlık', 'Burslu', NULL, 'DİL', 8, 7, '510,30433', '356,453', '23800', '...'),
 (110010289, 'Devlet', 'Ankara', 'Ankara Yıldırım Beyazıt Üni', 'Diş Hekimliği Fak', 'Diş Hekimliği Fak', NULL, NULL, 'SAY', 100, 90, '554,2762', '465,38875', '24000', '21445'),
 (203710108, 'Vakıf', 'İstanbul', 'Kadir Has Üni', 'İktisadi, İdari ve Sosyal Bilimler Fak', 'Ekonomi', 'Burslu', 'İng', 'EA', 4, 5, '553,80404', '383,89661', '24000', '42798');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (104110236, 'Devlet', 'Ankara', 'Gazi Üni', 'Gazi Eğitim Fak', 'Coğrafya Öğr', NULL, NULL, 'SÖZ', 20, 20, '516,51561', '383,63275', '24100', '28149'),
 (105710324, 'Devlet', 'İzmir', 'İzmir Katip Çelebi Üni', 'Diş Hekimliği Fak', 'Diş Hekimliği Fak', NULL, NULL, 'SAY', 80, 90, '530,91401', '465,37263', '24100', '21458'),
 (111010092, 'Devlet', 'İstanbul', 'Sağlık Bilimleri Üni', 'Gülhane Diş Hekimliği Fak', 'Gülhane Diş Hekimliği Fak', NULL, NULL, 'SAY', 80, 60, '549,40492', '463,91284', '24100', '22218'),
@@ -1276,7 +1276,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (100310652, 'Devlet', 'Aydın', 'Aydın Adnan Menderes Üni', 'Turizm Fak', 'Turizm Rehberliği', NULL, NULL, 'DİL', 50, 50, '512,1635737', '340,18079', '32200', '31597'),
 (100710878, 'Devlet', 'Antalya', 'Akdeniz Üni', 'Edebiyat Fak', 'Psikoloji', NULL, NULL, 'EA', 90, 90, '512,1647373', '385,36283', '32200', '41077'),
 (100890063, 'Devlet', 'Aksaray', 'Aksaray Üni', 'Fen-Edebiyat Fak', 'İngiliz Dili ve Edebiyatı', NULL, 'İng', 'DİL', 60, 60, '544,78553', '342,40565', '32200', '30892');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (102890075, 'Devlet', 'Çankırı', 'Çankırı Karatekin Üni', 'Diş Hekimliği Fak', 'Diş Hekimliği Fak', NULL, NULL, 'SAY', 60, 60, '510,30451', 'YENİ', '32200', '...'),
 (200910081, 'Vakıf', 'İstanbul', 'Bezm-İ Âlem Vakıf Üni', 'Eczacılık Fak', 'Eczacılık Fak', 'Burslu', NULL, 'SAY', 11, 10, '554,27638', '456,76474', '32300', '26281'),
 (104210623, 'Devlet', 'Gaziantep', 'Gaziantep Üni', 'Nizip Eğitim Fak', 'Türkçe Öğr', NULL, NULL, 'SÖZ', 50, 50, '553,80422', '376,00854', '32400', '36807'),
@@ -1576,7 +1576,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (100210283, 'Devlet', 'Adıyaman', 'Adıyaman Üni', 'Eğitim Fak', 'Arapça Öğr', NULL, NULL, 'DİL', 60, 60, '519,1348351', '281,53605', '41500', '51263'),
 (104110333, 'Devlet', 'Ankara', 'Gazi Üni', 'Gazi Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 80, 80, '519,1355976', '377,55483', '41500', '50902'),
 (107490302, 'Devlet', 'Mersin', 'Mersin Üni', 'Fen-Edebiyat Fak', 'Almanca Mütercim ve Tercümanlık', NULL, NULL, 'DİL', 50, 50, '492,39926', '308,467', '41500', '...');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (110010032, 'Devlet', 'Ankara', 'Ankara Yıldırım Beyazıt Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Bilgisayar Müh', NULL, 'İng', 'SAY', 80, 80, '546,34805', '427,51833', '41500', '44685'),
 (200590141, 'Vakıf', 'İstanbul', 'Bahçeşehir Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Matematik', 'Burslu', 'İng', 'SAY', 5, 5, '545,38069', '402,75242', '41500', '62549'),
 (203190115, 'Vakıf', 'İstanbul', 'İstanbul Medipol Üni', 'Diş Hekimliği Fak', 'Diş Hekimliği Fak', 'Ücretli', 'İng', 'SAY', 1, 2, '545,11836', 'YENİ', '41500', '...'),
@@ -1874,7 +1874,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (200612195, 'Vakıf', 'Ankara', 'Başkent Üni', 'Fen-Edebiyat Fak', 'Moleküler Biyoloji ve Genetik', 'Burslu', NULL, 'SAY', 5, 5, '512,2461893', '407,59905', '52000', '58932'),
 (201110729, 'Vakıf', 'Ankara', 'Çankaya Üni', 'Mühendislik Fak', 'Elektrik-Elektronik Müh', 'Burslu', 'İng', 'SAY', 12, 12, '544,78588', '416,0054', '52000', '52693'),
 (204950398, 'Vakıf', 'İstanbul', 'Piri Reis Üni', 'Hukuk Fak', 'Hukuk Fak', '%50 İnd', NULL, 'EA', 50, 55, '510,30486', '352,55886', '52000', '91286');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (105310091, 'Devlet', 'Malatya', 'İnönü Üni', 'Eğitim Fak', 'Sosyal Bilgiler Öğr', NULL, NULL, 'SÖZ', 50, 50, '554,27673', '356,95499', '52100', '67620'),
 (200510049, 'Vakıf', 'İstanbul', 'Bahçeşehir Üni', 'Eğitim Bilimleri Fak', 'Bilgisayar ve Öğretim Teknolojileri Öğr', 'Burslu', 'İng', 'SAY', 2, 2, '553,80457', '371,39342', '52100', '89173'),
 (200510419, 'Vakıf', 'İstanbul', 'Bahçeşehir Üni', 'Mimarlık ve Tasarım Fak', 'Mimarlık', 'Burslu', 'İng', 'SAY', 11, 11, '516,51614', '429,24021', '52100', '43498'),
@@ -2174,7 +2174,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (108210153, 'Devlet', 'Samsun', 'Ondokuz Mayıs Üni', 'Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 70, 70, '519,1889691', '364,37472', '64900', '70565'),
 (206190348, 'Vakıf', 'İstanbul', 'Yeditepe Üni', 'Ticari Bilimler Fak', 'Bilgi Güvenliği Teknolojisi', 'Burslu', 'İng', 'SAY', 5, 4, '492,39961', '391,76458', '64900', '71334'),
 (300410022, 'Kktc', 'Kktc-Lefkoşa', 'Uluslararası Kıbrıs Üni', 'Eğitim Fak', 'İngilizce Öğr', '%50 İnd', 'İng', 'DİL', 42, 40, '546,3484', 'DOLMADI', '64900', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (109730194, 'Devlet', 'Bursa', 'Bursa Uludağ Üni', 'İlahiyat Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 135, 150, '545,38069', '356,52456', '65000', '68495'),
 (111490202, 'Devlet', 'Kütahya', 'Kütahya Sağlık Bilimleri Üni', 'Sağlık Bilimleri Fak', 'Dil ve Konuşma Terapisi', NULL, NULL, 'SAY', 50, 40, '545,11836', 'YENİ', '65000', '...'),
 (101190430, 'Devlet', 'Ankara', 'Ankara Üni', 'Açık ve Uzaktan Eğitim Fak', 'Rus Dili ve Edebiyatı', NULL, 'Rusça', 'DİL', 100, 100, '545,04138', 'YENİ', '65100', '...'),
@@ -2470,7 +2470,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (202511253, 'Vakıf', 'İstanbul', 'İstanbul Bilgi Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Enerji Sistemleri Müh', 'Burslu', 'İng', 'SAY', 3, 7, '512,3264777', '400,4031', '77700', '64384'),
 (203111112, 'Vakıf', 'İstanbul', 'İstanbul Medipol Üni', 'Güzel Sanatlar Tasarım ve Mimarlık Fak', 'İç Mimarlık ve Çevre Tasarımı', 'Burslu', NULL, 'EA', 12, 14, '512,3276413', '358,47422', '77700', '80603'),
 (203510164, 'Vakıf', 'İzmir', 'İzmir Ekonomi Üni', 'Güzel Sanatlar ve Tasarım Fak', 'Endüstriyel Tasarım', 'Burslu', 'İng', 'SAY', 7, 6, '544,78623', '404,02134', '77700', '61604');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (203210485, 'Vakıf', 'İstanbul', 'İstanbul Sabahattin Zaim Üni', 'Eğitim Fak', 'Türkçe Öğr', '%50 İnd', NULL, 'SÖZ', 42, 42, '510,30521', '327,44317', '77800', '147909'),
 (100710745, 'Devlet', 'Antalya', 'Akdeniz Üni', 'İlahiyat Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 135, 150, '554,27708', '352,43734', '77900', '77110'),
 (107790242, 'Devlet', 'Hatay', 'Hatay Mustafa Kemal Üni', 'Eğitim Fak', 'İlköğretim Matematik Öğr', NULL, NULL, 'SAY', 40, 40, '553,80492', '365,30901', '77900', '95120'),
@@ -2768,7 +2768,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (106490145, 'Devlet', 'Kastamonu', 'Kastamonu Üni', 'Turizm Fak', 'Gastronomi ve Mutfak Sanatları', NULL, NULL, 'SÖZ', 50, 50, '549,40597', '341,45869', '94700', '104045'),
 (204910281, 'Vakıf', 'İstanbul', 'Piri Reis Üni', 'Mühendislik Fak', 'Makine Müh', 'Burslu', 'İng', 'SAY', 5, 7, '523,14648', '375,17076', '94700', '85603'),
 (207210094, 'Vakıf', 'İstanbul', 'Mef Üni', 'Mühendislik Fak', 'Bilgisayar Müh', '%50 İnd', 'İng', 'SAY', 54, 45, '519,2415781', '337,14946', '94700', '127206');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (100610146, 'Devlet', 'Kırşehir', 'Kırşehir Ahi Evran Üni', 'Eğitim Fak', 'İlköğretim Matematik Öğr', NULL, NULL, 'SAY', 50, 50, '519,2423406', '346,70627', '94800', '115216'),
 (205590079, 'Vakıf', 'Mersin', 'Toros Üni', 'Mühendislik Fak', 'Yazılım Müh', 'Burslu', 'İng', 'SAY', 4, 6, '492,39996', 'YENİ', '94900', '...'),
 (207210428, 'Vakıf', 'İstanbul', 'Mef Üni', 'Sanat, Tasarım ve Mimarlık Fak', 'İç Mimarlık', 'Burslu', 'İng', 'SAY', 7, 7, '546,34875', '392,98134', '94900', '70321'),
@@ -3062,7 +3062,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (107211269, 'Devlet', 'İstanbul', 'Marmara Üni', 'Siyasal Bilgiler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', NULL, 'Fra', 'EA', 60, 60, '492,40013', '340,14679', '114000', '116488'),
 (110310559, 'Devlet', 'Zonguldak', 'Zonguldak Bülent Ecevit Üni', 'Ereğli Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 60, 60, '546,34892', '346,16137', '114000', '103793'),
 (202490621, 'Vakıf', 'İstanbul', 'İstanbul Aydın Üni', 'Güzel Sanatlar Fak', 'Sanat ve Kültür Yönetimi', 'Burslu', NULL, 'SÖZ', 3, 6, '545,38069', 'YENİ', '114000', '...');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (206190378, 'Vakıf', 'İstanbul', 'Yeditepe Üni', 'Mühendislik Fak', 'Endüstri Müh', '%50 İnd', 'İng', 'SAY', 62, 63, '545,11836', '338,366', '114000', '...'),
 (206552491, 'Vakıf', 'İstanbul', 'Üsküdar Üni', 'İletişim Fak', 'Gazetecilik', 'Burslu', NULL, 'SÖZ', 4, 12, '545,04138', 'YENİ', '114000', '...'),
 (206710198, 'Vakıf', 'Ankara', 'Ted Üni', 'Fen-Edebiyat Fak', 'Psikoloji', '%50 İnd', 'İng', 'EA', 44, 46, '512,4079297', '359,10682', '114000', '79396'),
@@ -3356,7 +3356,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (101610134, 'Devlet', 'Bartın', 'Bartın Üni', 'Eğitim Fak', 'Sınıf Öğr', NULL, NULL, 'EA', 50, 50, '545,04138', '330,47959', '133000', '139305'),
 (104310031, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 70, 70, '512,4474921', '336,66289', '133000', '124439'),
 (104410208, 'Devlet', 'Gebze', 'Gebze Teknik Üni', 'Mühendislik Fak', 'İnşaat Müh', NULL, 'İng', 'SAY', 80, 70, '512,4486557', '338,88448', '133000', '124881');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (105490020, 'Devlet', 'İstanbul', 'İstanbul Medeniyet Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Biyomühendislik', NULL, NULL, 'SAY', 40, 40, '544,78675', '316,34687', '133000', '158129'),
 (105610828, 'Devlet', 'İstanbul', 'İstanbul Üni', 'Siyasal Bilgiler Fak', 'İşletme', NULL, NULL, 'EA', 85, 85, '510,30573', '334,14866', '133000', '130379'),
 (107090222, 'Devlet', 'Konya', 'Necmettin Erbakan Üni', 'Veteriner Fak', 'Veteriner Fak', NULL, NULL, 'SAY', 50, 60, '554,2776', 'YENİ', '133000', '...'),
@@ -3650,7 +3650,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (103310537, 'Devlet', 'Düzce', 'Düzce Üni', 'İlahiyat Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 108, 120, '510,3059', '329,05361', '152000', '142226'),
 (105610555, 'Devlet', 'İstanbul', 'İstanbul Üni', 'İktisat Fak', 'İşletme', NULL, NULL, 'EA', 110, 110, '554,27777', '323,93753', '152000', '156618'),
 (105810129, 'Devlet', 'İzmir', 'İzmir Yüksek Teknoloji Enstitüsü', 'Mühendislik Fak', 'Gıda Müh', NULL, 'İng', 'SAY', 60, 60, '553,80561', '316,67007', '152000', '157595');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106110699, 'Devlet', 'Karabük', 'Karabük Üni', 'Mühendislik Fak', 'Tıp Müh', NULL, NULL, 'SAY', 15, 10, '516,51718', '328,48868', '152000', '139014'),
 (106210495, 'Devlet', 'Trabzon', 'Karadeniz Teknik Üni', 'Sürmene Deniz Bilimleri Fak', 'Gemi İnşaatı ve Gemi Makineleri Müh', NULL, NULL, 'SAY', 60, 60, '530,91558', '315,47781', '152000', '159615'),
 (107890016, 'Devlet', 'Muş', 'Muş Alparslan Üni', 'Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 60, 60, '549,40649', '326,08715', '152000', '150779'),
@@ -3943,7 +3943,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (101410975, 'Devlet', 'Erzurum', 'Atatürk Üni', 'Sağlık Bilimleri Fak', 'Beslenme ve Diyetetik', NULL, NULL, 'SAY', 75, 70, '516,51735', '319,48332', '177000', '152997'),
 (102410054, 'Devlet', 'Bursa', 'Bursa Teknik Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Kimya Müh', NULL, NULL, 'SAY', 50, 50, '530,91575', '291,14105', '177000', '208799'),
 (105410099, 'Devlet', 'İstanbul', 'İstanbul Medeniyet Üni', 'Siyasal Bilgiler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', NULL, NULL, 'EA', 60, 60, '549,40666', '323,44457', '177000', '157941');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106610507, 'Devlet', 'Kırıkkale', 'Kırıkkale Üni', 'Güzel Sanatlar Fak', 'İç Mimarlık ve Çevre Tasarımı', NULL, NULL, 'EA', 60, 60, '523,14717', '319,391', '177000', '169623'),
 (108010058, 'Devlet', 'Nevşehir', 'Nevşehir Hacı Bektaş Veli Üni', 'Semra ve Vefa Küçük Sağlık Bilimleri Fak', 'Hemşirelik', NULL, NULL, 'SAY', 100, 100, '519,3467962', '298,8474', '177000', '191556'),
 (111611129, 'Devlet', 'İstanbul', 'İstanbul Üni-Cerrahpaşa', 'Sağlık Bilimleri Fak', 'Ebelik', NULL, NULL, 'SAY', 80, 80, '519,3475587', '300,09824', '177000', '188857'),
@@ -4235,7 +4235,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (103210547, 'Devlet', 'Kütahya', 'Kütahya Dumlupınar Üni', 'İslami İlimler Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 234, 300, '549,40683', '325,59908', '201000', '154608'),
 (104810344, 'Devlet', 'Ankara', 'Hacettepe Üni', 'Fen Fak', 'Biyoloji', NULL, NULL, 'SAY', 100, 100, '523,14734', '284,33435', '201000', '225791'),
 (105030159, 'Devlet', 'Şanlıurfa', 'Harran Üni', 'İlahiyat Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 90, 110, '519,3727195', '323,09607', '201000', '163863');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106910416, 'Devlet', 'Kocaeli', 'Kocaeli Üni', 'Mühendislik Fak', 'Metalurji ve Malzeme Müh', NULL, NULL, 'SAY', 80, 80, '519,373482', '290,7469', '201000', '209766'),
 (107210289, 'Devlet', 'İstanbul', 'Marmara Üni', 'Fen-Edebiyat Fak', 'Kimya', NULL, NULL, 'SAY', 80, 80, '492,40082', '283,3819', '201000', '228376'),
 (108211187, 'Devlet', 'Samsun', 'Ondokuz Mayıs Üni', 'Fen-Edebiyat Fak', 'Moleküler Biyoloji ve Genetik', NULL, NULL, 'SAY', 30, 30, '546,34961', '284,75051', '201000', '224698'),
@@ -4531,7 +4531,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (109230524, 'Devlet', 'Isparta', 'Süleyman Demirel Üni', 'İlahiyat Fak', 'İlahiyat', NULL, NULL, 'SÖZ', 153, 160, '545,38069', '314,18303', '224000', '200251'),
 (112510777, 'Devlet', 'Isparta', 'Isparta Uygulamalı Bilimler Üni', 'Teknoloji Fak', 'Elektrik-Elektronik Müh', NULL, NULL, 'SAY', 60, 60, '545,11836', '289,7186', '224000', '212307'),
 (200690361, 'Vakıf', 'Ankara', 'Başkent Üni', 'Fen-Edebiyat Fak', 'Moleküler Biyoloji ve Genetik', 'Ücretli', 'İng', 'SAY', 4, 4, '545,04138', '251,16223', '224000', '338139');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (202510097, 'Vakıf', 'İstanbul', 'İstanbul Bilgi Üni', 'Sosyal ve Beşeri Bilimler Fak', 'Psikoloji', 'Ücretli', 'İng', 'EA', 25, 19, '512,6080689', '284,92055', '224000', '301479'),
 (204010475, 'Vakıf', 'Konya', 'Kto Karatay Üni', 'Güzel Sanatlar ve Tasarım Fak', 'Mimarlık', '%50 İnd', NULL, 'SAY', 15, 18, '512,6092325', 'DOLMADI', '224000', ''),
 (100710109, 'Devlet', 'Antalya', 'Akdeniz Üni', 'Fen Fak', 'Matematik', NULL, NULL, 'SAY', 70, 70, '544,78744', '280,40545', '225000', '236335'),
@@ -4824,7 +4824,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (205710623, 'Vakıf', 'Ankara', 'Türk Hava Kurumu Üni', 'Mühendislik Fak', 'Bilgisayar Müh', '%50 İnd', 'İng', 'SAY', 71, 80, '512,6476313', '279,03707', '248000', '240257'),
 (300111492, 'Kktc', 'Kktc-Gazimağusa', 'Doğu Akdeniz Üni', 'Eğitim Fak', 'Okul Öncesi Öğr', '%50 İnd', NULL, 'SÖZ', 19, 19, '512,6487949', '299,35655', '248000', '272029'),
 (102910604, 'Devlet', 'Adana', 'Çukurova Üni', 'İktisadi ve İdari Bilimler Fak', 'İşletme', NULL, 'İng', 'EA', 50, 50, '544,78761', '296,56209', '249000', '249261');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (104230081, 'Devlet', 'Gaziantep', 'Gaziantep Üni', 'Mühendislik Fak', 'Makine Müh', NULL, 'İng', 'SAY', 80, 80, '510,30659', '277,04202', '249000', '245982'),
 (105610352, 'Devlet', 'İstanbul', 'İstanbul Üni', 'Fen Fak', 'Biyoloji', NULL, NULL, 'SAY', 100, 100, '554,27846', '270,87122', '249000', '264585'),
 (110310656, 'Devlet', 'Zonguldak', 'Zonguldak Bülent Ecevit Üni', 'Sağlık Bilimleri Fak', 'Fizyoterapi ve Rehabilitasyon', NULL, NULL, 'SAY', 80, 80, '553,8063', '277,44381', '249000', '244846'),
@@ -5118,7 +5118,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (102610228, 'Devlet', 'Sivas', 'Sivas Cumhuriyet Üni', 'Edebiyat Fak', 'Türk Dili ve Edebiyatı', NULL, NULL, 'SÖZ', 80, 80, '554,27863', '302,63416', '278000', '255235'),
 (103230233, 'Devlet', 'Kütahya', 'Kütahya Dumlupınar Üni', 'Mühendislik Fak', 'Elektrik-Elektronik Müh', NULL, NULL, 'SAY', 70, 70, '553,80647', '269,08012', '278000', '270406'),
 (106910576, 'Devlet', 'Kocaeli', 'Kocaeli Üni', 'Mühendislik Fak', 'Harita Müh', NULL, NULL, 'SAY', 60, 60, '516,51804', '276,28745', '278000', '248117');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106910619, 'Devlet', 'Kocaeli', 'Kocaeli Üni', 'Teknoloji Fak', 'Biyomedikal Müh', NULL, NULL, 'SAY', 11, 11, '530,91644', '261,33946', '278000', '297207'),
 (108110012, 'Devlet', 'Niğde', 'Niğde Ömer Halisdemir Üni', 'Eğitim Fak', 'Fen Bilgisi Öğr', NULL, NULL, 'SAY', 40, 40, '549,40735', 'DOLMADI', '278000', ''),
 (109710181, 'Devlet', 'Bursa', 'Bursa Uludağ Üni', 'Fen-Edebiyat Fak', 'Sosyoloji', NULL, NULL, 'EA', 70, 70, '523,14786', '295,22876', '278000', '254743'),
@@ -5414,7 +5414,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (103410209, 'Devlet', 'İzmir', 'Ege Üni', 'Fen Fak', 'Biyoloji', NULL, NULL, 'SAY', 120, 120, '519,4779376', '256,44657', '305000', '316138'),
 (104510162, 'Devlet', 'Giresun', 'Giresun Üni', 'Fen-Edebiyat Fak', 'Coğrafya', NULL, NULL, 'SÖZ', 60, 60, '519,4787001', '298,28963', '305000', '277681'),
 (107690153, 'Devlet', 'Muğla', 'Muğla Sıtkı Koçman Üni', 'Seydikemer Uygulamalı Bilimler Yüksekokulu', 'Sosyal Hizmet', NULL, NULL, 'EA', 50, 40, '492,40151', '293,79367', '305000', '260648');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (109290322, 'Devlet', 'Isparta', 'Süleyman Demirel Üni', 'Sivil Havacılık Yüksekokulu', 'Havacılık Yönetimi', NULL, NULL, 'EA', 40, 40, '546,3503', '288,38868', '305000', '284927'),
 (110090091, 'Devlet', 'Ankara', 'Ankara Yıldırım Beyazıt Üni', 'İşletme Fak', 'Finans ve Bankacılık', NULL, 'İng', 'EA', 60, 60, '545,38069', '288,242', '305000', '...'),
 (202512463, 'Vakıf', 'İstanbul', 'İstanbul Bilgi Üni', 'İletişim Fak', 'Dijital Oyun Tasarımı', '%50 İnd', 'İng', 'SAY', 39, 30, '545,11836', '251,50672', '305000', '336660'),
@@ -5710,7 +5710,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (203510597, 'Vakıf', 'İzmir', 'İzmir Ekonomi Üni', 'Fen-Edebiyat Fak', 'Matematik', '%50 İnd', 'İng', 'SAY', 19, 19, '545,04138', '242,66699', '349000', '377919'),
 (205410062, 'Vakıf', 'Ankara', 'Tobb Ekonomi Ve Teknoloji Üni', 'İktisadi ve İdari Bilimler Fak', 'İşletme', 'Ücretli', NULL, 'EA', 15, 15, '512,7686457', '244,58913', '349000', '575709'),
 (100710084, 'Devlet', 'Antalya', 'Akdeniz Üni', 'Fen Fak', 'Fizik', NULL, NULL, 'SAY', 25, 20, '512,7698093', '246,65023', '350000', '358490');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106410378, 'Devlet', 'Kastamonu', 'Kastamonu Üni', 'Fen-Edebiyat Fak', 'Coğrafya', NULL, NULL, 'SÖZ', 60, 60, '544,78813', '293,04953', '350000', '306972'),
 (107210729, 'Devlet', 'İstanbul', 'Marmara Üni', 'Bankacılık ve Sigortacılık Yüksekokulu', 'Sermaye Piyasası', NULL, NULL, 'EA', 60, 60, '510,30711', '272,48136', '350000', '368539'),
 (108510123, 'Devlet', 'Osmaniye', 'Osmaniye Korkut Ata Üni', 'Fen-Edebiyat Fak', 'Matematik', NULL, NULL, 'SAY', 30, 30, '554,27898', '245,68351', '350000', '363031'),
@@ -6005,7 +6005,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (202510794, 'Vakıf', 'İstanbul', 'İstanbul Bilgi Üni', 'İletişim Fak', 'Reklamcılık', '%50 İnd', 'İng', 'SÖZ', 76, 75, '554,27915', '287,8613', '389000', '337298'),
 (101111401, 'Devlet', 'Ankara', 'Ankara Üni', 'Ziraat Fak', 'Su Ürünleri Müh', NULL, 'İng', 'SAY', 30, 30, '553,80699', '237,095', '390000', '407147'),
 (102010119, 'Devlet', 'Bingöl', 'Bingöl Üni', 'Fen-Edebiyat Fak', 'Matematik', NULL, NULL, 'SAY', 20, 20, '516,51856', '239,06447', '390000', '396405');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (102910552, 'Devlet', 'Adana', 'Çukurova Üni', 'Ziraat Fak', 'Tarla Bitkileri', NULL, NULL, 'SAY', 50, 50, '530,91696', '239,28533', '390000', '395187'),
 (103110318, 'Devlet', 'İzmir', 'Dokuz Eylül Üni', 'İktisadi ve İdari Bilimler Fak', 'Çalışma Ekonomisi ve Endüstri İlişkileri', NULL, NULL, 'EA', 100, 100, '549,40787', '274,29287', '390000', '357949'),
 (109710136, 'Devlet', 'Bursa', 'Bursa Uludağ Üni', 'Fen-Edebiyat Fak', 'Fizik', NULL, NULL, 'SAY', 30, 30, '523,14838', '239,00942', '390000', '396694'),
@@ -6300,7 +6300,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (206111651, 'Vakıf', 'İstanbul', 'Yeditepe Üni', 'İletişim Fak', 'Görsel İletişim Tasarımı', '%50 İnd', 'İng', 'SÖZ', 49, 49, '523,14855', '263,5423', '431000', '501840'),
 (100110681, 'Devlet', 'Bolu', 'Abant İzzet Baysal Üni', 'Ziraat Fak', 'Bahçe Bitkileri', NULL, NULL, 'SAY', 20, 15, '519,5572324', '227,49406', '432000', '455982'),
 (106010064, 'Devlet', 'Kahramanmaraş', 'Kahramanmaraş Sütçü İmam Üni', 'Fen-Edebiyat Fak', 'Kimya', NULL, NULL, 'SAY', 20, 20, '519,5579949', '232,55217', '432000', '431995');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (109710242, 'Devlet', 'Bursa', 'Bursa Uludağ Üni', 'İktisadi ve İdari Bilimler Fak', 'İktisat', NULL, NULL, 'EA', 140, 140, '492,40203', '261,6361', '432000', '439083'),
 (111790326, 'Devlet', 'Ankara', 'Ankara Hacı Bayram Veli Üni', 'Bankacılık ve Sigortacılık Yüksekokulu', 'Finans ve Bankacılık', NULL, NULL, 'EA', 70, 70, '546,35082', '265,85', '432000', '...'),
 (202910612, 'Vakıf', 'İstanbul', 'Altınbaş Üni', 'İktisadi, İdari ve Sosyal Bilimler Fak', 'Sosyoloji', 'Burslu', 'İng', 'EA', 15, 15, '545,38069', '298,32932', '432000', '241893'),
@@ -6598,7 +6598,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (200510358, 'Vakıf', 'İstanbul', 'Bahçeşehir Üni', 'İktisadi, İdari ve Sosyal Bilimler Fak', 'Siyaset Bilimi ve Uluslararası İlişkiler', 'Ücretli', 'İng', 'EA', 25, 25, '512,8896601', '226,84729', '477000', '748569'),
 (201990506, 'Vakıf', 'İstanbul', 'Haliç Üni', 'Sağlık Bilimleri Fak', 'Beslenme ve Diyetetik', '%50 İnd', 'İng', 'SAY', 51, 51, '512,8908237', 'YENİ', '477000', '...'),
 (207710017, 'Vakıf', 'Gaziantep', 'Sanko Üni', 'Sağlık Bilimleri Fak', 'Beslenme ve Diyetetik', 'Ücretli', NULL, 'SAY', 14, 13, '544,78865', 'DOLMADI', '477000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (108390138, 'Devlet', 'Ordu', 'Ordu Üni', 'Güzel Sanatlar Fak', 'Radyo, Televizyon ve Sinema', NULL, NULL, 'SÖZ', 60, 40, '510,30763', '259,62', '478000', '...'),
 (108610704, 'Devlet', 'Denizli', 'Pamukkale Üni', 'Fen-Edebiyat Fak', 'Çağdaş Türk Lehçeleri ve Edebiyatları', NULL, NULL, 'SÖZ', 80, 60, '554,2795', '274,06507', '478000', '426424'),
 (200310757, 'Vakıf', 'Trabzon', 'Avrasya Üni', 'İktisadi ve İdari Bilimler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', 'Burslu', NULL, 'EA', 3, 3, '553,80734', '266,19461', '478000', '407872'),
@@ -6891,7 +6891,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (202311404, 'Vakıf', 'İstanbul', 'İstanbul Arel Üni', 'Mühendislik-Mimarlık Fak', 'İç Mimarlık', '%50 İnd', NULL, 'SAY', 40, 47, '510,3078', '223,58921', '530000', '467775'),
 (203111624, 'Vakıf', 'İstanbul', 'İstanbul Medipol Üni', 'Güzel Sanatlar Tasarım ve Mimarlık Fak', 'Kentsel Tasarım ve Peyzaj Mimarlığı', '%50 İnd', NULL, 'SAY', 25, 21, '554,27967', 'DOLMADI', '530000', ''),
 (102610131, 'Devlet', 'Sivas', 'Sivas Cumhuriyet Üni', 'Fen Fak', 'Fizik', NULL, NULL, 'SAY', 20, 20, '553,80751', 'DOLMADI', '531000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (109490230, 'Devlet', 'Edirne', 'Trakya Üni', 'İktisadi ve İdari Bilimler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', NULL, NULL, 'EA', 70, 70, '516,51908', '249,746', '531000', '530812'),
 (206210785, 'Vakıf', 'İstanbul', 'İstanbul Yeni Yüzyıl Üni', 'Sağlık Bilimleri Fak', 'Fizyoterapi ve Rehabilitasyon', '%50 İnd', NULL, 'SAY', 34, 34, '530,91748', 'DOLMADI', '531000', ''),
 (104310358, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Ziraat Fak', 'Biyosistem Müh', NULL, NULL, 'SAY', 30, 30, '549,40839', 'DOLMADI', '532000', ''),
@@ -7183,7 +7183,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (105710209, 'Devlet', 'İzmir', 'İzmir Katip Çelebi Üni', 'Sosyal ve Beşeri Bilimler Fak', 'Felsefe', NULL, NULL, 'EA', 60, 60, '553,80768', '241,75016', '592000', '602328'),
 (106930111, 'Devlet', 'Kocaeli', 'Kocaeli Üni', 'İktisadi ve İdari Bilimler Fak', 'İktisat', NULL, NULL, 'EA', 80, 80, '516,51925', '241,05984', '592000', '608887'),
 (107310313, 'Devlet', 'Burdur', 'Burdur Mehmet Akif Ersoy Üni', 'İktisadi ve İdari Bilimler Fak', 'Sağlık Yönetimi', NULL, NULL, 'EA', 70, 70, '530,91765', '252,14061', '592000', '510978');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (108930583, 'Devlet', 'Konya', 'Selçuk Üni', 'Sağlık Bilimleri Fak', 'Sağlık Yönetimi', NULL, NULL, 'EA', 70, 70, '549,40856', '252,73163', '592000', '506191'),
 (109211015, 'Devlet', 'Isparta', 'Süleyman Demirel Üni', 'Fen-Edebiyat Fak', 'Sanat Tarihi', NULL, NULL, 'SÖZ', 70, 70, '523,14907', '262,04311', '592000', '513216'),
 (200612292, 'Vakıf', 'Ankara', 'Başkent Üni', 'İktisadi ve İdari Bilimler Fak', 'İktisat', 'Ücretli', 'İng', 'EA', 2, 2, '519,6365272', 'DOLMADI', '592000', ''),
@@ -7474,7 +7474,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (101330062, 'Devlet', 'Artvin', 'Artvin Çoruh Üni', 'Fen-Edebiyat Fak', 'Türk Dili ve Edebiyatı', NULL, NULL, 'SÖZ', 40, 40, '516,51942', '268,90893', '665000', '462703'),
 (102730355, 'Devlet', 'Çanakkale', 'Çanakkale Onsekiz Mart Üni', 'Siyasal Bilgiler Fak', 'İktisat', NULL, NULL, 'EA', 40, 50, '530,91782', '231,66794', '665000', '703189'),
 (206010681, 'Vakıf', 'İzmir', 'Yaşar Üni', 'İletişim Fak', 'Görsel İletişim Tasarımı', 'Ücretli', 'İng', 'SÖZ', 3, 3, '549,40873', 'DOLMADI', '665000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (101590124, 'Devlet', 'Balıkesir', 'Balıkesir Üni', 'Burhaniye Uygulamalı Bilimler Yüksekokulu', 'Finans ve Bankacılık', NULL, NULL, 'EA', 50, 60, '523,14924', '248,833', '666000', '...'),
 (206710074, 'Vakıf', 'Ankara', 'Ted Üni', 'İktisadi ve İdari Bilimler Fak', 'İktisadi ve İdari Bilimler Programları', '%50 İnd', 'İng', 'EA', 138, 127, '519,6624505', '243,28862', '666000', '587836'),
 (300512114, 'Kktc', 'Kktc-Lefkoşa', 'Yakın Doğu Üni', 'İletişim Fak', 'Radyo, Televizyon ve Sinema', 'Burslu', NULL, 'SÖZ', 17, 11, '519,663213', '245,55825', '666000', '644969'),
@@ -7761,7 +7761,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (101490389, 'Devlet', 'Erzurum', 'Atatürk Üni', 'Spor Bilimleri Fak', 'Spor Yöneticiliği', NULL, NULL, 'EA', 40, 40, '510,30831', 'YENİ', '743000', '...'),
 (103310201, 'Devlet', 'Düzce', 'Düzce Üni', 'İşletme Fak', 'İşletme', NULL, NULL, 'EA', 50, 50, '554,28018', '225,96585', '743000', '755847'),
 (202410459, 'Vakıf', 'İstanbul', 'İstanbul Aydın Üni', 'İletişim Fak', 'Halkla İlişkiler ve Tanıtım', '%50 İnd', NULL, 'SÖZ', 64, 55, '553,80802', 'DOLMADI', '743000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (203411066, 'Vakıf', 'İstanbul', 'İstanbul Ticaret Üni', 'Mimarlık ve Tasarım Fak', 'İç Mimarlık ve Çevre Tasarımı', 'Ücretli', NULL, 'EA', 13, 12, '516,51959', 'DOLMADI', '743000', ''),
 (300512071, 'Kktc', 'Kktc-Lefkoşa', 'Yakın Doğu Üni', 'İletişim Fak', 'Halkla İlişkiler ve Tanıtım', 'Burslu', NULL, 'SÖZ', 15, 10, '530,91799', '231,76611', '743000', '762678'),
 (102530206, 'Devlet', 'Manisa', 'Manisa Celâl Bayar Üni', 'İktisadi ve İdari Bilimler Fak', 'Kamu Yönetimi', NULL, NULL, 'EA', 60, 60, '549,4089', '225,65076', '744000', '758345'),
@@ -8046,7 +8046,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (204590562, 'Vakıf', 'İstanbul', 'Nişantaşı Üni', 'Uygulamalı Bilimler Yüksekokulu', 'Uluslararası Ticaret ve İşletmecilik', '%50 İnd', NULL, 'EA', 21, 14, '545,11836', 'YENİ', '819000', '...'),
 (103590350, 'Devlet', 'Kayseri', 'Erciyes Üni', 'Edebiyat Fak', 'Çerkez Dili ve Kültürü', NULL, NULL, 'SÖZ', 30, 30, '545,04138', '258,379', '820000', '...'),
 (201710698, 'Vakıf', 'İstanbul', 'İstanbul Gedik Üni', 'İktisadi, İdari ve Sosyal Bilimler Fak', 'Psikoloji', 'Ücretli', NULL, 'EA', 40, 46, '512,1087472', 'DOLMADI', '820000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (202210222, 'Vakıf', 'İstanbul', 'İstanbul 29 Mayıs Üni', 'İktisadi ve İdari Bilimler Fak', 'Ekonomi', '%50 İnd', 'İng', 'EA', 25, 21, '512,1088636', 'DOLMADI', '820000', ''),
 (208590040, 'Vakıf', 'Antalya', 'Antalya Akev Üni', 'Sanat ve Tasarım Fak', 'İç Mimarlık ve Çevre Tasarımı', '%50 İnd', NULL, 'EA', 40, 42, '544,7895', 'YENİ', '820000', '...'),
 (106730219, 'Devlet', 'Kırklareli', 'Kırklareli Üni', 'İktisadi ve İdari Bilimler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', NULL, NULL, 'EA', 40, 40, '510,30848', '221,93036', '821000', '782878'),
@@ -8334,7 +8334,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (100410818, 'Devlet', 'Afyonkarahisar', 'Afyon Kocatepe Üni', 'Turizm Fak', 'Turizm İşletmeciliği', NULL, NULL, 'EA', 30, 30, '546,35201', 'DOLMADI', '951000', ''),
 (106110663, 'Devlet', 'Karabük', 'Karabük Üni', 'Edebiyat Fak', 'Felsefe', NULL, NULL, 'EA', 30, 30, '545,38069', 'DOLMADI', '951000', ''),
 (106810108, 'Devlet', 'Kilis', 'Kilis 7 Aralık Üni', 'İktisadi ve İdari Bilimler Fak', 'İşletme', NULL, NULL, 'EA', 30, 30, '545,11836', 'DOLMADI', '951000', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (104310446, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'İktisadi ve İdari Bilimler Fak', 'Siyaset Bilimi ve Uluslararası İlişkiler', NULL, NULL, 'EA', 60, 60, '545,04138', 'DOLMADI', '952000', ''),
 (108510247, 'Devlet', 'Osmaniye', 'Osmaniye Korkut Ata Üni', 'Kadirli Sosyal ve Beşeri Bilimler Fak', 'Bilgi ve Belge Yönetimi', NULL, NULL, 'EA', 50, 50, '512,1127035', 'DOLMADI', '952000', ''),
 (108410945, 'kktc', 'kktc', 'Orta Doğu Teknik Üni', 'ODTÜ Kuzey Kıbrıs Kampusu', 'İşletme', '%50 İnd', 'İng', 'EA', 23, 23, '512,1128198', 'DOLMADI', '953000', ''),
@@ -8642,7 +8642,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (104390158, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Erbaa Sağlık Bilimleri Fak', 'Hemşirelik', NULL, NULL, 'SAY', 60, NULL, '545,38069', '#YOK', 'yeni', NULL),
 (104390159, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Erbaa Sosyal ve Beşeri Bilimler Fak', 'Türk Dili ve Edebiyatı', NULL, NULL, 'SÖZ', 40, NULL, '545,11836', '#YOK', 'yeni', NULL),
 (104390160, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Hukuk Fak', 'Hukuk Fak', NULL, NULL, 'EA', 80, NULL, '545,04138', '#YOK', 'yeni', NULL);
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (104390161, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'İslami İlimler Fak', 'İslami İlimler', NULL, NULL, 'SÖZ', 15, NULL, '512,1168924', '#YOK', 'yeni', NULL),
 (104390162, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'İslami İlimler Fak', 'İslami İlimler', NULL, NULL, 'SÖZ', 15, NULL, '512,1170088', '#YOK', 'yeni', NULL),
 (104390163, 'Devlet', 'Tokat', 'Tokat Gaziosmanpaşa Üni', 'Zile Dinçerler Turizm İşletmeciliği ve Otelcilik', 'Rekreasyon Yönetimi', NULL, NULL, 'SÖZ', 40, NULL, '544,78985', '#YOK', 'yeni', NULL),
@@ -8954,7 +8954,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (109890150, 'Devlet', 'Uşak', 'Uşak Üni', 'Sağlık Bilimleri Fak', 'İş Sağlığı ve Güvenliği', NULL, NULL, 'SAY', 50, NULL, '544,79003', '#YOK', 'yeni', NULL),
 (109890151, 'Devlet', 'Uşak', 'Uşak Üni', 'Sağlık Bilimleri Fak', 'İş Sağlığı ve Güvenliği', NULL, NULL, 'SAY', 30, NULL, '510,30901', '#YOK', 'yeni', NULL),
 (109890152, 'Devlet', 'Uşak', 'Uşak Üni', 'Sağlık Bilimleri Fak', 'Sağlık Yönetimi', NULL, NULL, 'EA', 60, NULL, '554,28088', '#YOK', 'yeni', NULL);
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (109890153, 'Devlet', 'Uşak', 'Uşak Üni', 'Uygulamalı Bilimler Fak', 'Finans ve Bankacılık', NULL, NULL, 'EA', 70, NULL, '553,80872', '#YOK', 'yeni', NULL),
 (109890154, 'Devlet', 'Uşak', 'Uşak Üni', 'Uygulamalı Bilimler Fak', 'Lojistik Yönetimi', NULL, NULL, 'EA', 50, NULL, '516,52029', '#YOK', 'yeni', NULL),
 (109890155, 'Devlet', 'Uşak', 'Uşak Üni', 'Uygulamalı Bilimler Fak', 'Muhasebe ve Finans Yönetimi', NULL, NULL, 'EA', 30, NULL, '530,91869', '#YOK', 'yeni', NULL),
@@ -9248,7 +9248,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (202790511, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'Güzel Sanatlar Fak', 'İç Mimarlık ve Çevre Tasarımı', '%25 İnd', 'İng', 'EA', 20, NULL, '516,52046', '#YOK', 'yeni', NULL),
 (202790513, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'İktisadi, İdari ve Sosyal Bilimler Fak', 'Psikoloji', '%25 İnd', 'İng', 'EA', 19, NULL, '530,91886', '#YOK', 'yeni', NULL),
 (202790514, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'Mühendislik-Mimarlık Fak', 'Bilgisayar Müh', '%25 İnd', NULL, 'SAY', 60, NULL, '549,40977', '#YOK', 'yeni', NULL);
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (202790515, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'Mühendislik-Mimarlık Fak', 'Uçak Müh', 'Ücretli', 'İng', 'SAY', 14, NULL, '523,15028', '#YOK', 'yeni', NULL),
 (202790516, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'Mühendislik-Mimarlık Fak', 'Uçak Müh', 'Burslu', 'İng', 'SAY', 6, NULL, '519,8210401', '#YOK', 'yeni', NULL),
 (202790517, 'Vakıf', 'İstanbul', 'İstanbul Gelişim Üni', 'Mühendislik-Mimarlık Fak', 'Uçak Müh', '%25 İnd', 'İng', 'SAY', 20, NULL, '519,8218026', '#YOK', 'yeni', NULL),
@@ -9537,7 +9537,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (208450823, 'Vakıf', 'İstanbul', 'İstinye Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Biyomedikal Müh', 'Burslu', 'İng', 'SAY', 20, NULL, '553,80906', '#YOK', 'yeni', NULL),
 (208450824, 'Vakıf', 'İstanbul', 'İstinye Üni', 'İnsan ve Toplum Bilimleri Fak', 'İngiliz Dili ve Edebiyatı', 'Burslu', 'İng', 'DİL', 10, NULL, '516,52063', '#YOK', 'yeni', NULL),
 (208450825, 'Vakıf', 'İstanbul', 'İstinye Üni', 'İnsan ve Toplum Bilimleri Fak', 'İngiliz Dili ve Edebiyatı', '%50 İnd', 'İng', 'DİL', 56, NULL, '530,91903', '#YOK', 'yeni', NULL);
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (208450826, 'Vakıf', 'İstanbul', 'İstinye Üni', 'İnsan ve Toplum Bilimleri Fak', 'İngilizce Mütercim ve Tercümanlık', 'Burslu', NULL, 'DİL', 6, NULL, '549,40994', '#YOK', 'yeni', NULL),
 (208450827, 'Vakıf', 'İstanbul', 'İstinye Üni', 'İnsan ve Toplum Bilimleri Fak', 'İngilizce Mütercim ve Tercümanlık', '%50 İnd', NULL, 'DİL', 34, NULL, '523,15045', '#YOK', 'yeni', NULL),
 (208450828, 'Vakıf', 'İstanbul', 'İstinye Üni', 'Mühendislik ve Doğa Bilimleri Fak', 'Matematik', 'Burslu', 'İng', 'SAY', 11, NULL, '519,8469634', '#YOK', 'yeni', NULL),
@@ -9823,7 +9823,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (300790067, 'Kktc', 'Kktc-Girne', 'Girne Üni', 'Turizm Fak', 'Gastronomi ve Mutfak Sanatları', '%50 İnd', NULL, 'SÖZ', 25, NULL, '512,1330665', '#YOK', 'yeni', NULL),
 (300990066, 'Kktc', 'Kktc-Lefkoşa', 'Kıbrıs Amerikan Üni', 'Güzel Sanatlar Fak', 'İç Mimarlık ve Çevre Tasarımı', 'Ücretli', NULL, 'EA', 7, NULL, '544,79054', '#YOK', 'yeni', NULL),
 (300990067, 'Kktc', 'Kktc-Lefkoşa', 'Kıbrıs Amerikan Üni', 'Güzel Sanatlar Fak', 'İç Mimarlık ve Çevre Tasarımı', 'Burslu', NULL, 'EA', 3, NULL, '510,30952', '#YOK', 'yeni', NULL);
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (300990068, 'Kktc', 'Kktc-Lefkoşa', 'Kıbrıs Amerikan Üni', 'Güzel Sanatlar Fak', 'İç Mimarlık ve Çevre Tasarımı', '%50 İnd', NULL, 'EA', 10, NULL, '554,28139', '#YOK', 'yeni', NULL),
 (301390069, 'Kktc', 'Kktc-Girne', 'Uluslararası Final Üni', 'Sağlık Bilimleri Fak', 'Beslenme ve Diyetetik', 'Ücretli', 'İng', 'SAY', 7, NULL, '553,80923', '#YOK', 'yeni', NULL),
 (301390070, 'Kktc', 'Kktc-Girne', 'Uluslararası Final Üni', 'Sağlık Bilimleri Fak', 'Beslenme ve Diyetetik', 'Burslu', 'İng', 'SAY', 6, NULL, '516,5208', '#YOK', 'yeni', NULL),
@@ -10126,7 +10126,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (106010197, 'Devlet', 'Kahramanmaraş', 'Kahramanmaraş Sütçü İmam Üni', 'Mühendislik-Mimarlık Fak', 'Gıda Müh', NULL, NULL, 'SAY', 20, 20, '545,38069', 'DOLMADI', 'dolmadı', ''),
 (106010267, 'Devlet', 'Kahramanmaraş', 'Kahramanmaraş Sütçü İmam Üni', 'Mühendislik-Mimarlık Fak', 'İnşaat Müh', NULL, NULL, 'SAY', 30, 50, '545,11836', 'DOLMADI', 'dolmadı', ''),
 (106010355, 'Devlet', 'Kahramanmaraş', 'Kahramanmaraş Sütçü İmam Üni', 'Mühendislik-Mimarlık Fak', 'Makine Müh', NULL, NULL, 'SAY', 20, 30, '545,04138', 'DOLMADI', 'dolmadı', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (106110187, 'Devlet', 'Karabük', 'Karabük Üni', 'Mühendislik Fak', 'Otomotiv Müh', NULL, NULL, 'SAY', 20, 20, '512,1371391', 'DOLMADI', 'dolmadı', ''),
 (106110336, 'Devlet', 'Karabük', 'Karabük Üni', 'Teknoloji Fak', 'Mekatronik Müh', NULL, NULL, 'SAY', 20, 40, '512,1372554', 'DOLMADI', 'dolmadı', ''),
 (106110424, 'Devlet', 'Karabük', 'Karabük Üni', 'Edebiyat Fak', 'Arkeoloji', NULL, NULL, 'EA', 20, 20, '544,79072', 'DOLMADI', 'dolmadı', ''),
@@ -10433,7 +10433,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (200711706, 'Vakıf', 'İstanbul', 'Beykent Üni', 'İktisadi ve İdari Bilimler Fak', 'Siyaset Bilimi ve Kamu Yönetimi', '%50 İnd', 'İng', 'EA', 24, 34, '545,38069', 'YENİ', 'dolmadı', '...'),
 (200711769, 'Vakıf', 'İstanbul', 'Beykent Üni', 'Mühendislik-Mimarlık Fak', 'Elektrik-Elektronik Müh', '%50 İnd', NULL, 'SAY', 48, 68, '545,11836', 'DOLMADI', 'dolmadı', ''),
 (200712194, 'Vakıf', 'İstanbul', 'Beykent Üni', 'Mühendislik-Mimarlık Fak', 'Mimarlık', '%50 İnd', 'İng', 'SAY', 30, 31, '545,04138', 'DOLMADI', 'dolmadı', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (200712201, 'Vakıf', 'İstanbul', 'Beykent Üni', 'Mühendislik-Mimarlık Fak', 'İnşaat Müh', '%50 İnd', NULL, 'SAY', 17, 34, '512,141328', 'DOLMADI', 'dolmadı', ''),
 (200790460, 'Vakıf', 'İstanbul', 'Beykent Üni', 'Mühendislik-Mimarlık Fak', 'Kimya Müh', '%50 İnd', NULL, 'SAY', 19, 25, '512,1414444', 'YENİ', 'dolmadı', '...'),
 (200790462, 'Vakıf', 'İstanbul', 'Beykent Üni', 'Güzel Sanatlar Fak', 'İletişim ve Tasarımı', '%50 İnd', NULL, 'SÖZ', 51, 59, '544,7909', '250,508', 'dolmadı', '...'),
@@ -10720,7 +10720,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (204710926, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Sanat, Tasarım ve Mimarlık Fak', 'Sinema ve Televizyon', '%50 İnd', NULL, 'SÖZ', 17, 17, '519,952944', 'DOLMADI', 'dolmadı', ''),
 (204711069, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Hukuk Fak', 'Hukuk Fak', '%50 İnd', NULL, 'EA', 89, 82, '492,40462', '339,08599', 'dolmadı', '118913'),
 (204711678, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Sanat, Tasarım ve Mimarlık Fak', 'Mimarlık', '%50 İnd', 'İng', 'SAY', 26, 15, '546,35341', 'DOLMADI', 'dolmadı', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (204712164, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Eğitim Fak', 'Rehberlik ve Psikolojik Danışmanlık', '%50 İnd', NULL, 'EA', 17, 21, '545,38069', 'DOLMADI', 'dolmadı', ''),
 (204712288, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Sanat, Tasarım ve Mimarlık Fak', 'Mimarlık', '%50 İnd', NULL, 'SAY', 26, 15, '545,11836', 'DOLMADI', 'dolmadı', ''),
 (204712473, 'Vakıf', 'İstanbul', 'İstanbul Okan Üni', 'Diş Hekimliği Fak', 'Diş Hekimliği Fak', 'Ücretli', NULL, 'SAY', 57, 68, '545,04138', '410,3058', 'dolmadı', '56898'),
@@ -11006,7 +11006,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (300212108, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'Havacılık Yüksekokulu', 'Havacılık Yönetimi', '%50 İnd', 'İng', 'EA', 5, 12, '530,91989', 'DOLMADI', 'dolmadı', ''),
 (300212117, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'Havacılık Yüksekokulu', 'Pilotaj', 'Ücretli', 'İng', 'SAY', 8, 11, '549,4108', 'DOLMADI', 'dolmadı', ''),
 (300212259, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'Hukuk Fak', 'Hukuk Fak', '%50 İnd', NULL, 'EA', 15, 25, '523,15131', '326,41572', 'dolmadı', '149890');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (300212286, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'İşletme Fak', 'İnsan Kaynakları Yönetimi', 'Burslu', 'İng', 'EA', 3, 3, '519,9781048', 'DOLMADI', 'dolmadı', ''),
 (300290346, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'Beşeri Bilimler Fak', 'Amerikan Kültürü ve Edebiyatı', 'Burslu', 'İng', 'DİL', 12, 20, '519,9788673', '298,28064', 'dolmadı', '45441'),
 (300290362, 'Kktc', 'Kktc-Girne', 'Girne Amerikan Üni', 'Sağlık Bilimleri Fak', 'Fizyoterapi ve Rehabilitasyon', 'Ücretli', NULL, 'SAY', 6, 10, '492,40479', 'DOLMADI', 'dolmadı', ''),
@@ -11289,7 +11289,7 @@ INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `d
 (405210362, 'Yurtdışı', 'Bişkek-Kırgızistan', 'Kırgızistan-Türkiye Manas Üni', 'Edebiyat Fak', 'Rehberlik ve Psikolojik Danışmanlık', NULL, NULL, 'EA', 5, 5, '512,152964', 'DOLMADI', 'dolmadı', ''),
 (405210371, 'Yurtdışı', 'Bişkek-Kırgızistan', 'Kırgızistan-Türkiye Manas Üni', 'İktisadi ve İdari Bilimler Fak', 'Finans ve Bankacılık', NULL, NULL, 'EA', 3, 3, '512,1530804', 'DOLMADI', 'dolmadı', ''),
 (405410139, 'Yurtdışı', 'Komrat-Moldova', 'Komrat Devlet Üni', 'Milli Kültür Fak', 'Rus ve İngiliz Dilleri ve Edebiyatları', 'Ücretli', NULL, 'DİL', 10, 10, '544,7914', 'DOLMADI', 'dolmadı', '');
-INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point(2020)`, `min_point(2019)`, `success_order(2020)`, `success_order(2019)`) VALUES
+INSERT INTO `sayfa2` (`program_code`, `statu`, `city`, `uni_name`, `faculty`, `department`, `scholarship`, `language`, `point_type`, `quota(2021)`, `quota(2020)`, `min_point_2020`, `min_point_2019`, `success_order_2020`, `success_order_2019`) VALUES
 (405410148, 'Yurtdışı', 'Komrat-Moldova', 'Komrat Devlet Üni', 'Milli Kültür Fak', 'İngiliz ve Rus Dilleri ve Edebiyatları', 'Ücretli', NULL, 'DİL', 10, 10, '510,31038', 'DOLMADI', 'dolmadı', ''),
 (408810038, 'Yurtdışı', 'Saraybosna - Bosna - Hersek', 'Uluslararası Saraybosna Üni', 'Sanat ve Sosyal Bilimler Fak', 'İngiliz Dili ve Edebiyatı', '%50 İnd', NULL, 'DİL', 5, 5, '554,28225', 'DOLMADI', 'dolmadı', ''),
 (408810092, 'Yurtdışı', 'Saraybosna - Bosna - Hersek', 'Uluslararası Saraybosna Üni', 'Sanat ve Sosyal Bilimler Fak', 'Görsel Sanatlar ve İletişim Tasarımı', '%50 İnd', NULL, 'SÖZ', 5, 5, '553,81009', 'DOLMADI', 'dolmadı', ''),
