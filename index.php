@@ -40,7 +40,7 @@
 
 <div class='container-fluid m-5'>
     <form action="index.php" method='POST'>
-        <div class='row'>
+        <div class='row m-2'>
             <div class='col'>
                 <div class='uni'><b>Üniversiteler:</b></div>
                 <div>
@@ -92,8 +92,9 @@
                 </div>
             </div>
         </div>
-        <div class='row'>
-        <div class='col ml-3'>
+        
+        <div class='row m-2 '>
+        <div class='col'>
                 <div class=''><b>Şehirler:</b></div>
                 <div>
                 <?php
@@ -134,6 +135,8 @@
                     ?>
                 </div>
             </div>
+            </div>
+            <div class='row mt-2'>
             <div class='col'>
                 <div class='uni'><b>Bölümler:</b></div>
                 <div>
@@ -162,6 +165,7 @@
             </div>
             <div class='col'>
                 <div class='uni'><b>Üniversite Türleri:</b></div>
+                <div>
                 <?php 
                 $sql = "SELECT DISTINCT statu FROM sayfa2";
                 if ($result = mysqli_query($conn, $sql)) {
@@ -184,16 +188,17 @@
                     ?> 
             </div>
         </div>
-        <div class='row'>
+        </div>
+        <div class='row mt-2'>
             <div class='col'>
             <input type="text" name='selectedKeyword' value placeholder='Aramak istedignizi yaziniz'>
             </div>
         </div> 
-        <div>
+        <div style="margin-top:5px;">
         <input type="submit" name='submit' value='Gonder'>
         </div>
     </form>
-</div>
+
 </div>
 
 <br>
@@ -202,7 +207,7 @@
     <table>
         <tbody>
             <tr>
-                <th width="9%">Program Kodu</th>
+                <th width="10%">Program Kodu</th>
                 <th width="16%" >Üniversite</th>
                 <th width="16%" >Bölüm</th>
                 <th width="8%" >Puan Türü</th>
