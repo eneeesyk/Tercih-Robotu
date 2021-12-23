@@ -161,20 +161,27 @@
                 </div>
             </div>
             <div class='col'>
-                <div class='uni'><b>Universite Turleri:</b></div>
-                <div>
+                <div class='uni'><b>Üniversite Türleri:</b></div>
                 <?php 
-                        $uni_type = array('Devlet', 'Vakif', 'KKTC', 'Yurtdisi');
+                $sql = "SELECT DISTINCT statu FROM sayfa2";
+                if ($result = mysqli_query($conn, $sql)) {
+                    if(mysqli_num_rows($result) > 0) {
                         echo '<div class="btn-group bootstrap-select show-tick ng-pristine ng-untouched ng-valid ng-empty">';
                         echo "<select name='uni_type[]' class='selectpicker' multiple data-live-search='true'>";
-                        echo "<option selected disabled>Universite Turu.</option>";
-                        foreach($uni_type as $key => $value){
-                            echo '<option>'.$value.'</option>';
+                        echo "<option selected disabled>Üniversite Türü Seçiniz.</option>";
+                        while($row = mysqli_fetch_array($result)){    
+                        echo "<option>".$row['statu']."</option>";
                         }
-                        echo '</div>';
                         echo '</select>';
-                    ?>
-                </div>
+                        echo '</div>';
+                        mysqli_free_result($result);
+                    }else {
+                        echo "<script type='text/JavaScript'> alert('Something went wrong... There is no records); </script>";
+                    }
+                }else {
+                    echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                }
+                    ?> 
             </div>
         </div>
         <div class='row'>
@@ -182,7 +189,9 @@
             <input type="text" name='selectedKeyword' value placeholder='Aramak istedignizi yaziniz'>
             </div>
         </div> 
-        <input type="submit" name='submit' value='Gonder'> 
+        <div>
+        <input type="submit" name='submit' value='Gonder'>
+        </div>
     </form>
 </div>
 </div>
@@ -500,6 +509,46 @@
                 foreach ($typeArray as $t)
                 {
                     $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE point_type='$t'";
+                    if ($result = mysqli_query($conn, $sql))
+                    {
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";   
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['uni_type']))
+        {
+            if (!empty($uniTypeArray))
+            {
+                foreach ($uniTypeArray as $ut)
+                {
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE statu ='$ut'";
                     if ($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
