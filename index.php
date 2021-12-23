@@ -185,60 +185,11 @@
         <input type="submit" name='submit' value='Gonder'> 
     </form>
 </div>
+</div>
 
 <br>
-        <div class='container-fluid'>
-        <?php
-            if(isset($_POST['submit'])){
-                if(!empty($_POST['uniName'])) {
-                    $uniArray = array();
-                    foreach($_POST['uniName'] as $selected){
-                        $uniArray[] = $selected;
-                    }
-     
-                }
 
-                if(!empty($_POST['facultyName'])) {
-                    $facultyArray = array();
-                    foreach($_POST['facultyName'] as $selected2){
-                        $facultyArray[] = $selected2;
-                    }
-                }
-
-                if (!empty($_POST['cities'])){
-                    $cityArray = array();
-                    foreach($_POST['cities'] as $selected3){
-                        $cityArray[] = $selected3;
-                    }
-                }
-                
-                if (!empty($_POST['type'])){
-                    $typeArray = array();
-                    foreach($_POST['type'] as $selected4){
-                        $typeArray[] = $selected4;
-                    }
-                }
-
-                if (!empty($_POST['department'])){
-                    $departmentArray = array();
-                    foreach($_POST['department'] as $selected6){
-                        $department[] = $selected6;
-                    }
-                }
-
-                if (!empty($_POST['uni_type'])){
-                    $uniTypeArray = array();
-                    foreach($_POST['uni_type'] as $selected5){
-                        $uniTypeArray[] = $selected5;
-                    }
-                }
-                
-
-            }
-        ?>
-        </div>
-
-<div class='container-fluid mt-5'>
+<div class='container-fluid mt-5 border'>
     <table>
         <tbody>
             <tr>
@@ -255,15 +206,143 @@
 
             <?php 
 
-                //database içindeki min_point(2020) şeklinde tutulan veriler değiştirilmiştir. 
-                $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2";
-                
-                if ($result = mysqli_query($conn, $sql)) {
+        if(isset($_POST['submit'])){
+            if(!empty($_POST['uniName'])) {
+                $uniArray = array();
+                foreach($_POST['uniName'] as $selected){
+                    $uniArray[] = $selected;
+                }
+            }
 
-                    if(mysqli_num_rows($result) > 0) {
-                        
-                        while($row = mysqli_fetch_array($result)){    
-                            
+            if(!empty($_POST['facultyName'])) {
+                $facultyArray = array();
+                foreach($_POST['facultyName'] as $selected2){
+                    $facultyArray[] = $selected2;
+                }
+            }
+
+            if (!empty($_POST['cities'])){
+                $cityArray = array();
+                foreach($_POST['cities'] as $selected3){
+                    $cityArray[] = $selected3;
+                }
+            }
+            
+            if (!empty($_POST['type'])){
+                $typeArray = array();
+                foreach($_POST['type'] as $selected4){
+                    $typeArray[] = $selected4;
+                }
+            }
+
+            if (!empty($_POST['department'])){
+                $departmentArray = array();
+                foreach($_POST['department'] as $selected6){
+                    $departmentArray[] = $selected6;
+                }
+            }
+
+            if (!empty($_POST['uni_type'])){
+                $uniTypeArray = array();
+                foreach($_POST['uni_type'] as $selected5){
+                    $uniTypeArray[] = $selected5;
+                }
+            }
+
+            if (!empty($uniArray) && !empty($facultyArray))
+            {
+                foreach ($uniArray as $u)
+                {
+                    foreach ($facultyArray as $f){
+                    #echo $u;
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND faculty='$f'";       
+                    if ($result = mysqli_query($conn, $sql))
+                    {
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+
+                }
+            }
+            }
+            else if (!empty($uniArray) && !empty($departmentArray))
+            {
+                foreach ($uniArray as $u)
+                {
+                    foreach ($departmentArray as $d){
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND department='$d'";       
+                    if ($result = mysqli_query($conn, $sql))
+                    {
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+
+                }
+            }
+            }
+            else if (!empty($_POST['uniName']))
+            {
+                if (!empty($uniArray))
+                {
+                    foreach ($uniArray as $u)
+                    {
+                        $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u'";
+                        if ($result = mysqli_query($conn, $sql))
+                        {
+                            if (mysqli_num_rows($result) > 0)
+                        {
+                        while ($row = mysqli_fetch_array($result))
+                        {
                             echo "</tr>".
 
                             "<td>".$row['program_code']."</td>".
@@ -275,20 +354,222 @@
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>"     
 
-                            ."</tr>";
-                            
-
+                            ."</tr>";                        
                         }
-                        
                         mysqli_free_result($result);
-                    }else {
+                    }
+                    else
+                    {
                         echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
                     }
-                }else {
-                    echo "ERROR: Could not execute $sql2" . mysqli_error($conn);
                 }
+                else
+                {
+                    echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['facultyName']))
+        {
+            if (!empty($facultyArray))
+            {
+                foreach ($facultyArray as $f)
+                {
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE faculty='$f'";
+                    if ($result = mysqli_query($conn, $sql))
+                    {
 
-  
+                        if (mysqli_num_rows($result) > 0)
+                        {
+
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";   
+
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['department']))
+            {
+                if (!empty($departmentArray))
+                {
+                    foreach ($departmentArray as $d)
+                    {
+                        $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE department='$d'";
+                        if ($result = mysqli_query($conn, $sql))
+                        {
+                            if (mysqli_num_rows($result) > 0)
+                        {
+                        while ($row = mysqli_fetch_array($result))
+                        {
+                            echo "</tr>".
+
+                            "<td>".$row['program_code']."</td>".
+                            "<td>".$row['uni_name']."</td>".
+                            "<td>".$row['department']."</td>".
+                            "<td>".$row['point_type']."</td>".
+                            "<td>".$row['min_point_2020']."</td>".
+                            "<td>".$row['min_point_2019']."</td>".
+                            "<td>".$row['success_order_2020']."</td>".
+                            "<td>".$row['success_order_2019']."</td>"     
+
+                            ."</tr>";                        
+                        }
+                        mysqli_free_result($result);
+                    }
+                    else
+                    {
+                        echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                    }
+                }
+                else
+                {
+                    echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['cities']))
+        {
+            if (!empty($cityArray))
+            {
+                foreach ($cityArray as $c)
+                {
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE city='$c'";
+                    if($result = mysqli_query($conn, $sql))
+                    {
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";   
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['type']))
+        {
+            if (!empty($typeArray))
+            {
+                foreach ($typeArray as $t)
+                {
+                    $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE point_type='$t'";
+                    if ($result = mysqli_query($conn, $sql))
+                    {
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while ($row = mysqli_fetch_array($result))
+                            {
+                                echo "</tr>".
+
+                                "<td>".$row['program_code']."</td>".
+                                "<td>".$row['uni_name']."</td>".
+                                "<td>".$row['department']."</td>".
+                                "<td>".$row['point_type']."</td>".
+                                "<td>".$row['min_point_2020']."</td>".
+                                "<td>".$row['min_point_2019']."</td>".
+                                "<td>".$row['success_order_2020']."</td>".
+                                "<td>".$row['success_order_2019']."</td>"     
+
+                                ."</tr>";   
+                            }
+                            mysqli_free_result($result);
+                        }
+                        else
+                        {
+                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                        }
+                    }
+                    else
+                    {
+                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                    }
+                }
+            }
+        }
+        else if (!empty($_POST['selectedKeyword']))
+        {
+            $kwarg = $_POST['selectedKeyword'];
+            $sql = "SELECT uni_name, department, program_code, point_type, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name LIKE '%$kwarg%' or faculty LIKE '%$kwarg%' or department LIKE '%$kwarg%' or city LIKE '%$kwarg%'";
+            if ($result = mysqli_query($conn, $sql))
+            {
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while ($row = mysqli_fetch_array($result))
+                    {
+                        echo "</tr>".
+
+                        "<td>".$row['program_code']."</td>".
+                        "<td>".$row['uni_name']."</td>".
+                        "<td>".$row['department']."</td>".
+                        "<td>".$row['point_type']."</td>".
+                        "<td>".$row['min_point_2020']."</td>".
+                        "<td>".$row['min_point_2019']."</td>".
+                        "<td>".$row['success_order_2020']."</td>".
+                        "<td>".$row['success_order_2019']."</td>"     
+
+                        ."</tr>";   
+                    }
+                    mysqli_free_result($result);
+                }
+                else
+                {
+                    echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                }
+            }
+            else
+            {
+                echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+            }
+        }
+
+        }
             ?>
 
         </tbody>
