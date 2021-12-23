@@ -38,7 +38,7 @@
             ?>
 
 
-<div class='container-fluid m-5'>
+<div class='container-fluid mt-5'>
     <form action="index.php" method='POST'>
         <div class='row m-2'>
             <div class='col'>
@@ -198,8 +198,8 @@
         <input type="submit" name='submit' value='Gonder'>
         </div>
     </form>
-
 </div>
+
 
 <br>
 
@@ -216,7 +216,7 @@
                 <th width="10%" >Taban Puan 2019</th>
                 <th width="10%" >Taban Sıralama 2020</th>
                 <th width="10%" >Taban Sıralama 2019</th>
-                <th width="10%">Ekle</th>
+                <th width="5%">Ekle</th>
             </tr>
 
             <?php 
