@@ -198,7 +198,7 @@
     </form>
 </div>
 
-<button class='w3-button w3-round-xxlarge w3-blue w3-hover-green' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
+<button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
 
 <div class='container-fluid mt-5'>
     <table id='table1' class='table content-table table-sortable table-bordered table-striped'>
@@ -286,7 +286,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue'>+</button></td>" 
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
 
                                 ."</tr>";
                             }
@@ -328,7 +328,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";
                             }
@@ -371,7 +371,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                             ."</tr>";                        
                         }
@@ -415,7 +415,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
 
@@ -458,7 +458,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"     
+                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
 
                             ."</tr>";                        
                         }
@@ -500,7 +500,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -542,7 +542,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -584,7 +584,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -623,7 +623,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-green'>+</button></td>"      
+                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -649,5 +649,6 @@
 </div>
 
 <script src='script.js'></script>
+
 </body>
 </html>
