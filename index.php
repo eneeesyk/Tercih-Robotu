@@ -12,13 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <link rel='stylesheet' href='style.css'/>
-    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' type='text/css' href='style.css'>    
 </head>
 <body>
 
-<div class="h2"><b>ISTANBUL TICARET UNIVERSITESI TERCIH ROBOTU</b></div>
-<div class='text-secondary'>Istanbul Ticaret Universitesi tercih robotuna hosgeldiniz!</div>
+<div class="h2"><b>İSTANBUL TİCARET ÜNİVERSİTESİ TERCİH ROBOTU</b></div>
+<div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
 
 <?php
             define('DB_HOST', 'localhost');
@@ -39,7 +39,7 @@
 
 
 <div class='container-fluid mt-5'>
-    <form action="index.php" method='POST'>
+    <form action="index.php" method='POST' id='form1'>
         <div class='row m-2'>
             <div class='col'>
                 <div class='uni'><b>Üniversiteler:</b></div>
@@ -93,7 +93,7 @@
             </div>
         </div>
         
-        <div class='row m-2 '>
+        <div class='row m-2'>
         <div class='col'>
                 <div class=''><b>Şehirler:</b></div>
                 <div>
@@ -190,35 +190,33 @@
         </div>
         </div>
         <div class='row mt-2'>
-            <div class='col'>
-            <input type="text" name='selectedKeyword' value placeholder='Aramak istedignizi yaziniz'>
+            <div class='col d-flex justify-content-end'>
+            <div class='w3-text-blue'><b>Search:</b></div>
+                <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
             </div>
         </div> 
-        <div style="margin-top:5px;">
-        <input type="submit" name='submit' value='Gonder'>
-        </div>
     </form>
 </div>
 
+<button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
 
-<br>
-
-<div class='container-fluid mt-5 border'>
-    <table>
-        <tbody>
+<div class='container-fluid mt-5'>
+    <table id='table1' class='table content-table table-sortable table-bordered table-striped'>
+        <thead class='w3-blue'>
             <tr>
-                <th width="10%">Program Kodu</th>
-                <th width="16%" >Üniversite</th>
-                <th width="16%" >Bölüm</th>
-                <th width="8%" >Puan Türü</th>
-                <th width="8%" >Burs</th>
-                <th width="10%" >Taban Puan 2020</th>
-                <th width="10%" >Taban Puan 2019</th>
-                <th width="10%" >Taban Sıralama 2020</th>
-                <th width="10%" >Taban Sıralama 2019</th>
-                <th width="5%">Ekle</th>
+                <th>Program Kodu</th>
+                <th>Üniversite</th>
+                <th>Bölüm</th>
+                <th>Puan Türü</th>
+                <th>Burs</th>
+                <th>Taban Puan 2020</th>
+                <th>Taban Puan 2019</th>
+                <th>Taban Sıralama 2020</th>
+                <th>Taban Sıralama 2019</th>
+                <th>Ekle</th>
             </tr>
-
+        </thead>
+        <tbody>
             <?php 
 
         if(isset($_POST['submit'])){
@@ -270,7 +268,7 @@
                 {
                     foreach ($facultyArray as $f){
                     #echo $u;
-                    $sql = "SELECT uni_name, department, program_code, point_type, scholarship,min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND faculty='$f'";       
+                    $sql = "SELECT uni_name, department, program_code, point_type, coalesce(scholarship, 'Devlet') ,min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND faculty='$f'";       
                     if ($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
@@ -283,11 +281,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
 
                                 ."</tr>";
                             }
@@ -311,7 +310,7 @@
                 foreach ($uniArray as $u)
                 {
                     foreach ($departmentArray as $d){
-                    $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND department='$d'";       
+                    $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u' AND department='$d'";       
                     if ($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
@@ -324,11 +323,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";
                             }
@@ -353,7 +353,7 @@
                 {
                     foreach ($uniArray as $u)
                     {
-                        $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u'";
+                        $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name='$u'";
                         if ($result = mysqli_query($conn, $sql))
                         {
                             if (mysqli_num_rows($result) > 0)
@@ -366,11 +366,12 @@
                             "<td>".$row['uni_name']."</td>".
                             "<td>".$row['department']."</td>".
                             "<td>".$row['point_type']."</td>".
-                            "<td>".$row['scholarship']."</td>".
+                            "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                             "<td>".$row['min_point_2020']."</td>".
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
-                            "<td>".$row['success_order_2019']."</td>"     
+                            "<td>".$row['success_order_2019']."</td>".
+                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                             ."</tr>";                        
                         }
@@ -394,7 +395,7 @@
             {
                 foreach ($facultyArray as $f)
                 {
-                    $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE faculty='$f'";
+                    $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE faculty='$f'";
                     if ($result = mysqli_query($conn, $sql))
                     {
 
@@ -409,11 +410,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
 
@@ -438,7 +440,7 @@
                 {
                     foreach ($departmentArray as $d)
                     {
-                        $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE department='$d'";
+                        $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE department='$d'";
                         if ($result = mysqli_query($conn, $sql))
                         {
                             if (mysqli_num_rows($result) > 0)
@@ -451,11 +453,12 @@
                             "<td>".$row['uni_name']."</td>".
                             "<td>".$row['department']."</td>".
                             "<td>".$row['point_type']."</td>".
-                            "<td>".$row['scholarship']."</td>".
+                            "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                             "<td>".$row['min_point_2020']."</td>".
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
-                            "<td>".$row['success_order_2019']."</td>"     
+                            "<td>".$row['success_order_2019']."</td>".
+                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
 
                             ."</tr>";                        
                         }
@@ -479,7 +482,7 @@
             {
                 foreach ($cityArray as $c)
                 {
-                    $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE city='$c'";
+                    $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE city='$c'";
                     if($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
@@ -492,11 +495,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -520,7 +524,7 @@
             {
                 foreach ($typeArray as $t)
                 {
-                    $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE point_type='$t'";
+                    $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE point_type='$t'";
                     if ($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
@@ -533,11 +537,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -561,7 +566,7 @@
             {
                 foreach ($uniTypeArray as $ut)
                 {
-                    $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE statu ='$ut'";
+                    $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE statu ='$ut'";
                     if ($result = mysqli_query($conn, $sql))
                     {
                         if (mysqli_num_rows($result) > 0)
@@ -574,11 +579,12 @@
                                 "<td>".$row['uni_name']."</td>".
                                 "<td>".$row['department']."</td>".
                                 "<td>".$row['point_type']."</td>".
-                                "<td>".$row['scholarship']."</td>".
+                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                                 "<td>".$row['min_point_2020']."</td>".
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
-                                "<td>".$row['success_order_2019']."</td>"     
+                                "<td>".$row['success_order_2019']."</td>".
+                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -599,7 +605,7 @@
         else if (!empty($_POST['selectedKeyword']))
         {
             $kwarg = $_POST['selectedKeyword'];
-            $sql = "SELECT uni_name, department, program_code, point_type,scholarship, min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name LIKE '%$kwarg%' or faculty LIKE '%$kwarg%' or department LIKE '%$kwarg%' or city LIKE '%$kwarg%'";
+            $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE uni_name LIKE '%$kwarg%' or faculty LIKE '%$kwarg%' or department LIKE '%$kwarg%' or city LIKE '%$kwarg%'";
             if ($result = mysqli_query($conn, $sql))
             {
                 if (mysqli_num_rows($result) > 0)
@@ -612,11 +618,12 @@
                         "<td>".$row['uni_name']."</td>".
                         "<td>".$row['department']."</td>".
                         "<td>".$row['point_type']."</td>".
-                        "<td>".$row['scholarship']."</td>".
+                        "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
                         "<td>".$row['min_point_2020']."</td>".
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
-                        "<td>".$row['success_order_2019']."</td>"     
+                        "<td>".$row['success_order_2019']."</td>".
+                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -640,6 +647,8 @@
     </table>
 
 </div>
+
+<script src='script.js'></script>
 
 </body>
 </html>
