@@ -38,11 +38,11 @@
             ?>
 
 
-<div class='container-fluid mt-5'>
+<div class='container-fluid mt-5 ml-5'>
     <form action="index.php" method='POST' id='form1'>
         <div class='row m-2'>
             <div class='col'>
-                <div class='uni'><b>Üniversiteler:</b></div>
+                <div class='w3-text-blue'><b>Üniversiteler:</b></div>
                 <div>
                     <?php
                         $sql = "SELECT DISTINCT uni_name FROM sayfa2";
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class='col'>
-                <div class='uni'><b>Fakülteler:</b></div>
+                <div class='w3-text-blue'><b>Fakülteler:</b></div>
                 <div>
                 <?php        
                     $sql2 = "SELECT DISTINCT faculty FROM sayfa2";
@@ -95,7 +95,7 @@
         
         <div class='row m-2'>
         <div class='col'>
-                <div class=''><b>Şehirler:</b></div>
+                <div class='w3-text-blue'><b>Şehirler:</b></div>
                 <div>
                 <?php
                     $sql = "SELECT DISTINCT city FROM sayfa2";
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class='col'>
-                <div class='uni'><b>Puan Türü:</b></div>
+                <div class='w3-text-blue'><b>Puan Türü:</b></div>
                 <div>
                 <?php
                         $type = array('SAY', 'EA', 'DİL', 'SÖZ');  
@@ -138,7 +138,7 @@
             </div>
             <div class='row mt-2'>
             <div class='col'>
-                <div class='uni'><b>Bölümler:</b></div>
+                <div class='w3-text-blue'><b>Bölümler:</b></div>
                 <div>
                 <?php
                 $sql = "SELECT DISTINCT department FROM sayfa2";
@@ -164,7 +164,7 @@
                 </div>
             </div>
             <div class='col'>
-                <div class='uni'><b>Üniversite Türleri:</b></div>
+                <div class='w3-text-blue'><b>Üniversite Türleri:</b></div>
                 <div>
                 <?php 
                 $sql = "SELECT DISTINCT statu FROM sayfa2";
@@ -190,21 +190,23 @@
         </div>
         </div>
         <div class='row mt-2'>
-            <div class='col d-flex justify-content-end'>
+            <div class='col'>
             <div class='w3-text-blue'><b>Search:</b></div>
                 <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
+            </div>
+            <div class='col mt-4'>
+                <button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
             </div>
         </div> 
     </form>
 </div>
+            </div>
 
-<button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
-
-<div class='container-fluid mt-5'>
-    <table id='table1' class='table content-table table-sortable table-bordered table-striped'>
+<div class='container-fluid mt-5 table-responsive'>
+    <table id='myTable' class='table content-table table-sortable table-bordered table-striped'>
         <thead class='w3-blue'>
             <tr>
-                <th>Program Kodu</th>
+                <th class='th-sm'>Program Kodu</th>
                 <th>Üniversite</th>
                 <th>Bölüm</th>
                 <th>Puan Türü</th>
@@ -216,7 +218,7 @@
                 <th>Ekle</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id='myTableBody'>
             <?php 
 
         if(isset($_POST['submit'])){
@@ -645,7 +647,9 @@
 
         </tbody>
     </table>
-
+    <!--<div class="col-md-12 text-center">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
+    </div> -->
 </div>
 
 <script src='script.js'></script>
