@@ -34,15 +34,15 @@
     
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require 'PHPMailer/src/Exception.php';
-    require 'Tercih-Robotu/PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
+    require __DIR__.'/PHPMailer/src/Exception.php';
+    require __DIR__.'/PHPMailer/src/PHPMailer.php';
+    require __DIR__.'/PHPMailer/src/SMTP.php';
 
 
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'root');
-    define('DB_PASSWORD', 'root');
-    define('DB_NAME', 'tercih_test');
+    define('DB_PASSWORD', '112358');
+    define('DB_NAME', 'tercihrobotu');
 
 
     try {

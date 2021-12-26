@@ -19,11 +19,36 @@
 
 <div class="h2"><b>İSTANBUL TİCARET ÜNİVERSİTESİ TERCİH ROBOTU</b></div>
 <div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
+<script>
+    $(document).ready(function(){
+        var arr = new Array();
+    $('button.w3-button').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        arr.push(clickBtnValue);
+        var ajaxurl = 'ajax.php',
+        data =  {'id': arr};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            //alert(arr);
+        });
+    });
+
+    $('#btnSendMail').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        var ajaxurl = 'ajax.php',
+        data =  {'id': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            //alert("action performed successfully");
+        });
+    });
+});
+</script>
 <?php
             define('DB_HOST', 'localhost');
             define('DB_USERNAME', 'root');
-            define('DB_PASSWORD', 'root');
-            define('DB_NAME', 'tercih_test');
+            define('DB_PASSWORD', '112358');
+            define('DB_NAME', 'tercihrobotu');
 
 
             try {
