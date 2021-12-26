@@ -19,12 +19,24 @@
 
 <div class="h2"><b>İSTANBUL TİCARET ÜNİVERSİTESİ TERCİH ROBOTU</b></div>
 <div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
-
+<script>
+    $(document).ready(function(){
+    $('button').click(function(){
+        var clickBtnValue = $(this).val();
+        var ajaxurl = 'ajax.php',
+        data =  {'action': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            alert("action performed successfully");
+        });
+    });
+});
+</script>
 <?php
             define('DB_HOST', 'localhost');
             define('DB_USERNAME', 'root');
-            define('DB_PASSWORD', 'root');
-            define('DB_NAME', 'tercih_test');
+            define('DB_PASSWORD', '112358');
+            define('DB_NAME', 'tercihrobotu');
 
 
             try {
@@ -35,7 +47,17 @@
                     echo 'Previous exception: '.$e->getMessage() . "<br/>";
                 }
             }
-            ?>
+
+            $results_per_page = 10; 
+
+            //determine which page number visitor is currently on  
+            if (!isset ($_GET['page']) ) {  
+                $page = 1;  
+            } else {  
+                $page = $_GET['page'];  
+            }   
+  
+?>
 
 
 <div class='container-fluid mt-5 ml-5'>
@@ -288,7 +310,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
 
                                 ."</tr>";
                             }
@@ -330,7 +352,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";
                             }
@@ -373,7 +395,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                             ."</tr>";                        
                         }
@@ -417,7 +439,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
 
@@ -460,7 +482,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
+                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
 
                             ."</tr>";                        
                         }
@@ -502,7 +524,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -544,7 +566,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -586,7 +608,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td<button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -625,7 +647,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -642,8 +664,51 @@
             }
         }
 
-        }
-            ?>
+        }else{
+            /*
+        //find the total number of results stored in the database  
+        $query = "select * from sayfa2";  
+        $result = mysqli_query($conn, $query);  
+        $number_of_result = mysqli_num_rows($result);  
+      
+        //determine the total number of pages available  
+        $number_of_page = ceil ($number_of_result / $results_per_page);  
+      
+        
+      
+        //determine the sql LIMIT starting number for the results on the displaying page  
+        $page_first_result = ($page-1) * $results_per_page;  
+      
+        //retrieve the selected results from database   
+        $query = "SELECT * FROM sayfa2 LIMIT " . $page_first_result . ',' . $results_per_page;  
+        $result = mysqli_query($conn, $query);  
+          
+        //display the retrieved result on the webpage  
+        while ($row = mysqli_fetch_array($result)) {  
+            echo "</tr>".
+
+                        "<td>".$row['program_code']."</td>".
+                        "<td>".$row['uni_name']."</td>".
+                        "<td>".$row['department']."</td>".
+                        "<td>".$row['point_type']."</td>".
+                        "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
+                        "<td>".$row['min_point_2020']."</td>".
+                        "<td>".$row['min_point_2019']."</td>".
+                        "<td>".$row['success_order_2020']."</td>".
+                        "<td>".$row['success_order_2019']."</td>".
+                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+
+                        ."</tr>";
+        }  
+      
+      
+        //display the link of the pages in URL  
+        for($page = 1; $page<= $number_of_page; $page++) {  
+            echo '<a href = "index.php?page=' . $page . '">' . $page . ' </a>';  
+        }  */
+            }
+?>
+        
 
         </tbody>
     </table>

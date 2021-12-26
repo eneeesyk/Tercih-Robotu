@@ -43,7 +43,7 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
     });
 });
 
-/*
+
 //Table Pagination
 $.fn.pageMe = function(opts){
     var $this = this,
@@ -151,4 +151,4 @@ $(document).ready(function(){
     
     $('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:10});
       
-  });*/
+  });
