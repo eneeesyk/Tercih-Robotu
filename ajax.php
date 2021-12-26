@@ -34,15 +34,16 @@
     
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require '/home/socketpuppets/Tercih-Robotu/PHPMailer/src/Exception.php';
-    require '/home/socketpuppets/Tercih-Robotu/PHPMailer/src/PHPMailer.php';
-    require '/home/socketpuppets/Tercih-Robotu/PHPMailer/src/SMTP.php';
+    require __DIR__.'/PHPMailer/src/Exception.php';
+    require __DIR__.'/PHPMailer/src/PHPMailer.php';
+    require __DIR__.'/PHPMailer/src/SMTP.php';
 
 
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'root');
-    define('DB_PASSWORD', '112358');
-    define('DB_NAME', 'tercihrobotu');
+    define('DB_PASSWORD', 'root');
+    define('DB_NAME', 'tercih_test');
+    $html = "";
 
 
     try {
@@ -61,7 +62,7 @@
         #print_r($ids);
     }
 
-    if (!empty($ids))
+    if (!empty($ids) OR isset($_POST['action']))
             {
                 for($i = 0; $i < $arrLength; $i++) {
                     $id = $ids[0][$i];
@@ -103,11 +104,11 @@
 
 
                                 // set the email address
-                                $mail->AddAddress("aydinnyunus@gmail.com", "Yunus AYDIN");
+                                $mail->AddAddress('enessyedikardess@gmail.com', 'Enes Yedikardes');
 
 
                                 // html content for smart email clients
-                                $html = <<<EOL
+                                $html = $html.<<<EOL
                                 <h1>Welcome</h1>
 
                                 <p>{$row['program_code']}.</p>
@@ -123,22 +124,9 @@
                                 EOL;
 
                             }
+                            
                             // add the content to the mail
-                            if (isset($_POST['btnSendMail'])) {
-    // btnDelete 
-  
-                                $mail->MsgHTML($html);
-                                // add alternate content 
-                                #$mail->AltBody($text);
-
-
-                                // send the mail
-                                if ($mail->Send()) {
-                                   // mail sent correctly
-                                } else {
-                                   die("Uhoh, could not send to {$mail['email']}:" . $mail->ErrorInfo);
-                                }
-                                }
+                            
                             mysqli_free_result($result);
                         }
                         else
@@ -152,6 +140,19 @@
                     }
 
                 }
+
+                if (isset($_POST['action'])) {
+                        // btnDelete 
+                                $mail->MsgHTML($html);
+                                // add alternate content 
+                                #$mail->AltBody($text);
+                                // send the mail
+                                if ($mail->Send()) {
+                                   // mail sent correctly
+                                } else {
+                                   die("Uhoh, could not send to {$_POST['email']}:" . $mail->ErrorInfo);
+                                }
+                                }
             }
 
 
