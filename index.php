@@ -19,11 +19,10 @@
 
 <div class="h2"><b>İSTANBUL TİCARET ÜNİVERSİTESİ TERCİH ROBOTU</b></div>
 <div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
-<<<<<<< HEAD
 <script>
     $(document).ready(function(){
         var arr = new Array();
-    $('button.w3-button').click(function(){
+    $('button.test').click(function(){
         var clickBtnValue = $(this).attr("id");
         arr.push(clickBtnValue);
         var ajaxurl = 'ajax.php',
@@ -33,21 +32,18 @@
             //alert(arr);
         });
     });
-
-    $('#btnSendMail').click(function(){
+     $('#btnSendMail').click(function(){
         var clickBtnValue = $(this).attr("id");
         var ajaxurl = 'ajax.php',
-        data =  {'id': clickBtnValue};
+        data =  {'action': clickBtnValue, "id": arr};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
             //alert("action performed successfully");
         });
     });
+    
 });
 </script>
-=======
-
->>>>>>> 9fffca4eb5e1d529eea1e507f0a5c76bc946682e
 <?php
             define('DB_HOST', 'localhost');
             define('DB_USERNAME', 'root');
@@ -63,41 +59,8 @@
                     echo 'Previous exception: '.$e->getMessage() . "<br/>";
                 }
             }
-<<<<<<< HEAD
-
-            $results_per_page = 10; 
-
-            //determine which page number visitor is currently on  
-            if (!isset ($_GET['page']) ) {  
-                $page = 1;  
-            } else {  
-                $page = $_GET['page'];  
-            }
-            $z = array();  
-  
-?>
-=======
             ?>
->>>>>>> 9fffca4eb5e1d529eea1e507f0a5c76bc946682e
 
- <div class="form-group col-xs-6 col-sm-4 col-xxs-12">
-                        <label>Adı Soyadı</label>
-                        <input id="adsoyad" name="adsoyad" type="text" class="form-control" placeholder="Adı Soyadı" required>
-                        <div ng-messages="tercihForm.adsoyad.$error" style="color:maroon" role="alert">
-                            <div ng-message="required">*</div>
-                        </div>
-                    </div>
-                    <div class="form-group col-xs-6 col-sm-4 col-xxs-12">
-                        <label>E-Posta</label>
-                        <input id="email" name="email" type="email" class="form-control" placeholder="E-Posta" required>
-                        <div ng-messages="tercihForm.email.$error" style="color:maroon" role="alert">
-                            <div ng-message="required">*</div>
-                            <div ng-message="email">E-Posta formatı düzgün girilmedi.</div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-offset-4 col-sm-4 mt-30 mb-30">
-                        <button id="btnSendMail" type="submit" class="green-button">MAİLİME GÖNDER</button>
-                    </div>
 <div class='container-fluid mt-5 ml-5'>
     <form action="index.php" method='POST' id='form1'>
         <div class='row m-2'>
@@ -249,29 +212,30 @@
             </div>
         </div>
         </div>
-        <div class='row mt-2'>
-            <div class='col d-inline-flex justify-content-center mt-5 mb-5'>
-                <?php
-
-                echo '<input class="form-control-sm" type="number" placeholder="Min sıralama" id="placement-bottom" name="placement-bottom" min="0" max="1178988">';
-                echo '<label class="form-label">0 - 1178988</label>';
-                echo '<input class="form-control-sm" type="number" placeholder="Max sıralama" id="placement-top" name="placement-top" min="0" max="1178988">';
-                    
-            ?>
+            <div class='row mt-2'>
+                <div class='col d-inline-flex justify-content-center mt-5 mb-5'>
+                    <?php
+                        echo '<input class="form-control-sm" type="number" placeholder="Min sıralama" id="placement-bottom" name="placement-bottom" min="0" max="1178988">';
+                        echo '<label class="form-label">0 - 1178988</label>';
+                        echo '<input class="form-control-sm" type="number" placeholder="Max sıralama" id="placement-top" name="placement-top" min="0" max="1178988">';       
+                    ?>
+                </div>
             </div>
-        </div>
-        <div class='row mt-2'>
-            <div class='col'>
-            <div class='w3-text-blue'><b>Search:</b></div>
-                <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
-            </div>
-            <div class='col mt-4'>
-                <button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
-            </div>
-        </div> 
-    </form>
+            <div class='row mt-2'>
+                <div class='col'>
+                <div class='w3-text-blue'><b>Search:</b></div>
+                    <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
+                </div>
+                <div class='col mt-4'>
+                    <button id="addList" class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
+                </div>
+                <div class='col mt-4'>
+                    <a href="#mail-me" class="w3-button w3-round-xxlarge w3-green w3-hover-grey">LİSTENİZİ MAİL ATMAK İÇİN TIKLAYIN!</a>
+                </div>
+            </div> 
+        </form>
+    </div>
 </div>
-            </div>
 
 <div class='container-fluid mt-5 table-responsive'>
     <table id='myTable' class='table content-table table-sortable table-bordered table-striped'><!--- data-pagination='true' data-mobile-responsive='true' data-page-size='20' data-click-to-select='' -->
@@ -359,7 +323,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
 
                                 ."</tr>";
                             }
@@ -401,7 +365,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";
                             }
@@ -444,7 +408,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                            "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                             ."</tr>";                        
                         }
@@ -488,7 +452,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
 
@@ -531,7 +495,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
+                            "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
 
                             ."</tr>";                        
                         }
@@ -573,7 +537,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -615,7 +579,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -657,7 +621,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -696,7 +660,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -734,7 +698,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -761,7 +725,35 @@
     </div> -->
 </div>
 
-<script src='script.js'></script>
 
+<div id='mail-me' class='mt-5 ml-5'>
+    <div class='row'>
+        <div class="form-group col col-xs-6 col-sm-4 col-xxs-12">
+            <label>Adı Soyadı</label>
+            <input id="adsoyad" name="adsoyad" type="text" class="form-control" placeholder="Adı Soyadı" required>
+            <div ng-messages="tercihForm.adsoyad.$error" style="color:maroon" role="alert">
+                <div ng-message="required">*</div>
+            </div>
+        </div>
+        <div class="form-group col col-xs-6 col-sm-4 col-xxs-12">
+            <label>E-Posta</label>
+            <input id="email" name="email" type="email" class="form-control" placeholder="E-Posta" required>
+            <div ng-messages="tercihForm.email.$error" style="color:maroon" role="alert">
+                <div ng-message="required">*</div>
+                    <div ng-message="email">E-Posta formatı düzgün girilmedi.</div>
+            </div>
+        </div>    
+    </div>
+    <div class="col-xs-12 col-sm-offset-4 col-sm-4 mt-30 mb-30">
+        <button id="btnSendMail" name="btnSendMail" type="submit" class="w3-button w3-round-xxlarge w3-blue w3-hover-grey">MAİLİME GÖNDER</button>
+    </div>
+</div>
+
+<footer>
+        
+
+
+</footer>
+<script src='script.js'></script>
 </body>
 </html>
