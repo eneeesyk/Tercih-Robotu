@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,24 +19,12 @@
 
 <div class="h2"><b>İSTANBUL TİCARET ÜNİVERSİTESİ TERCİH ROBOTU</b></div>
 <div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
-<script>
-    $(document).ready(function(){
-    $('button').click(function(){
-        var clickBtnValue = $(this).val();
-        var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            alert("action performed successfully");
-        });
-    });
-});
-</script>
+
 <?php
             define('DB_HOST', 'localhost');
             define('DB_USERNAME', 'root');
-            define('DB_PASSWORD', '112358');
-            define('DB_NAME', 'tercihrobotu');
+            define('DB_PASSWORD', 'root');
+            define('DB_NAME', 'tercih_test');
 
 
             try {
@@ -47,17 +35,7 @@
                     echo 'Previous exception: '.$e->getMessage() . "<br/>";
                 }
             }
-
-            $results_per_page = 10; 
-
-            //determine which page number visitor is currently on  
-            if (!isset ($_GET['page']) ) {  
-                $page = 1;  
-            } else {  
-                $page = $_GET['page'];  
-            }   
-  
-?>
+            ?>
 
 
 <div class='container-fluid mt-5 ml-5'>
@@ -212,6 +190,17 @@
         </div>
         </div>
         <div class='row mt-2'>
+            <div class='col d-inline-flex justify-content-center mt-5 mb-5'>
+                <?php
+
+                echo '<input class="form-control-sm" type="number" placeholder="Min sıralama" id="placement-bottom" name="placement-bottom" min="0" max="1178988">';
+                echo '<label class="form-label">0 - 1178988</label>';
+                echo '<input class="form-control-sm" type="number" placeholder="Max sıralama" id="placement-top" name="placement-top" min="0" max="1178988">';
+                    
+            ?>
+            </div>
+        </div>
+        <div class='row mt-2'>
             <div class='col'>
             <div class='w3-text-blue'><b>Search:</b></div>
                 <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
@@ -225,7 +214,7 @@
             </div>
 
 <div class='container-fluid mt-5 table-responsive'>
-    <table id='myTable' class='table content-table table-sortable table-bordered table-striped'>
+    <table id='myTable' class='table content-table table-sortable table-bordered table-striped'><!--- data-pagination='true' data-mobile-responsive='true' data-page-size='20' data-click-to-select='' -->
         <thead class='w3-blue'>
             <tr>
                 <th class='th-sm'>Program Kodu</th>
@@ -608,7 +597,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td<button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -663,29 +652,18 @@
                 echo "ERROR: Could not execute $sql" . mysqli_error($conn);
             }
         }
-
-        }else{
-            /*
-        //find the total number of results stored in the database  
-        $query = "select * from sayfa2";  
-        $result = mysqli_query($conn, $query);  
-        $number_of_result = mysqli_num_rows($result);  
-      
-        //determine the total number of pages available  
-        $number_of_page = ceil ($number_of_result / $results_per_page);  
-      
-        
-      
-        //determine the sql LIMIT starting number for the results on the displaying page  
-        $page_first_result = ($page-1) * $results_per_page;  
-      
-        //retrieve the selected results from database   
-        $query = "SELECT * FROM sayfa2 LIMIT " . $page_first_result . ',' . $results_per_page;  
-        $result = mysqli_query($conn, $query);  
-          
-        //display the retrieved result on the webpage  
-        while ($row = mysqli_fetch_array($result)) {  
-            echo "</tr>".
+        else if (!empty($_POST['placement-bottom']) && !empty($_POST['placement-top']))
+        {
+            $placementTop = $_POST['placement-top'];
+            $placementBottom = $_POST['placement-bottom'];
+            $sql = "SELECT uni_name, department, program_code, point_type,coalesce(scholarship, 'Devlet'), min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE success_order_2020 BETWEEN '$placementBottom' AND '$placementTop'";
+            if ($result = mysqli_query($conn, $sql))
+            {
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while ($row = mysqli_fetch_array($result))
+                    {
+                        echo "</tr>".
 
                         "<td>".$row['program_code']."</td>".
                         "<td>".$row['uni_name']."</td>".
@@ -696,19 +674,25 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
-                        ."</tr>";
-        }  
-      
-      
-        //display the link of the pages in URL  
-        for($page = 1; $page<= $number_of_page; $page++) {  
-            echo '<a href = "index.php?page=' . $page . '">' . $page . ' </a>';  
-        }  */
+                        ."</tr>";   
+                    }
+                    mysqli_free_result($result);
+                }
+                else
+                {
+                    echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                }
             }
-?>
-        
+            else
+            {
+                echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+            }
+        }
+
+        }
+            ?>
 
         </tbody>
     </table>
