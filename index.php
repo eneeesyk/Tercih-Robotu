@@ -21,13 +21,25 @@
 <div class='text-secondary'>İstanbul Ticaret Üniversitesi Tercih Robotuna Hoşgeldiniz!</div>
 <script>
     $(document).ready(function(){
-    $('button').click(function(){
-        var clickBtnValue = $(this).val();
+        var arr = new Array();
+    $('button.w3-button').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        arr.push(clickBtnValue);
         var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue};
+        data =  {'id': arr};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
-            alert("action performed successfully");
+            //alert(arr);
+        });
+    });
+
+    $('#btnSendMail').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        var ajaxurl = 'ajax.php',
+        data =  {'id': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            //alert("action performed successfully");
         });
     });
 });
@@ -55,11 +67,29 @@
                 $page = 1;  
             } else {  
                 $page = $_GET['page'];  
-            }   
+            }
+            $z = array();  
   
 ?>
 
-
+ <div class="form-group col-xs-6 col-sm-4 col-xxs-12">
+                        <label>Adı Soyadı</label>
+                        <input id="adsoyad" name="adsoyad" type="text" class="form-control" placeholder="Adı Soyadı" required>
+                        <div ng-messages="tercihForm.adsoyad.$error" style="color:maroon" role="alert">
+                            <div ng-message="required">*</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-6 col-sm-4 col-xxs-12">
+                        <label>E-Posta</label>
+                        <input id="email" name="email" type="email" class="form-control" placeholder="E-Posta" required>
+                        <div ng-messages="tercihForm.email.$error" style="color:maroon" role="alert">
+                            <div ng-message="required">*</div>
+                            <div ng-message="email">E-Posta formatı düzgün girilmedi.</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-offset-4 col-sm-4 mt-30 mb-30">
+                        <button id="btnSendMail" type="submit" class="green-button">MAİLİME GÖNDER</button>
+                    </div>
 <div class='container-fluid mt-5 ml-5'>
     <form action="index.php" method='POST' id='form1'>
         <div class='row m-2'>
