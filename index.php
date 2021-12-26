@@ -36,7 +36,7 @@
     $('#btnSendMail').click(function(){
         var clickBtnValue = $(this).attr("id");
         var ajaxurl = 'ajax.php',
-        data =  {'id': clickBtnValue};
+        data =  {'action': clickBtnValue};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
             //alert("action performed successfully");
