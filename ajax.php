@@ -104,7 +104,7 @@
 
 
                                 // set the email address
-                                $mail->AddAddress("aydinnyunus@gmail.com", "Yunus AYDIN");
+                                $mail->AddAddress($_POST['email'], $_POST['fname']);
 
 
                                 // html content for smart email clients

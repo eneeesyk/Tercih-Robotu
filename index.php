@@ -34,8 +34,10 @@
     });
      $('#btnSendMail').click(function(){
         var clickBtnValue = $(this).attr("id");
+        var fname = document.getElementById("fname").value
+        var user_email = document.getElementById("email").value
         var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue, "id": arr};
+        data =  {'action': clickBtnValue, "id": arr, "fname": fname, "email": user_email};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
             //alert("action performed successfully");
@@ -728,24 +730,15 @@
 
 <div id='mail-me' class='mt-5 ml-5'>
     <div class='row'>
-        <div class="form-group col col-xs-6 col-sm-4 col-xxs-12">
-            <label>Adı Soyadı</label>
-            <input id="adsoyad" name="adsoyad" type="text" class="form-control" placeholder="Adı Soyadı" required>
-            <div ng-messages="tercihForm.adsoyad.$error" style="color:maroon" role="alert">
-                <div ng-message="required">*</div>
-            </div>
-        </div>
-        <div class="form-group col col-xs-6 col-sm-4 col-xxs-12">
-            <label>E-Posta</label>
-            <input id="email" name="email" type="email" class="form-control" placeholder="E-Posta" required>
-            <div ng-messages="tercihForm.email.$error" style="color:maroon" role="alert">
-                <div ng-message="required">*</div>
-                    <div ng-message="email">E-Posta formatı düzgün girilmedi.</div>
-            </div>
-        </div>    
-    </div>
+        <form>
+          <label for="fname">First name:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="email">Mail Address:</label>
+          <input type="text" id="email" name="email"><br><br>
+          <button id="btnSendMail" name="btnSendMail" type="submit" class="w3-button w3-round-xxlarge w3-blue w3-hover-grey">MAİLİME GÖNDER</button>
+        </form>
     <div class="col-xs-12 col-sm-offset-4 col-sm-4 mt-30 mb-30">
-        <button id="btnSendMail" name="btnSendMail" type="submit" class="w3-button w3-round-xxlarge w3-blue w3-hover-grey">MAİLİME GÖNDER</button>
+        
     </div>
 </div>
 
