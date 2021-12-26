@@ -22,7 +22,7 @@
 <script>
     $(document).ready(function(){
         var arr = new Array();
-    $('button.w3-button').click(function(){
+    $('button.test').click(function(){
         var clickBtnValue = $(this).attr("id");
         arr.push(clickBtnValue);
         var ajaxurl = 'ajax.php',
@@ -32,16 +32,16 @@
             //alert(arr);
         });
     });
-
-    $('#btnSendMail').click(function(){
+     $('#btnSendMail').click(function(){
         var clickBtnValue = $(this).attr("id");
         var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue};
+        data =  {'action': clickBtnValue, "id": arr};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
             //alert("action performed successfully");
         });
     });
+    
 });
 </script>
 <?php
@@ -227,7 +227,7 @@
                     <input class='w3-input w3-border' type="text" name='selectedKeyword' value placeholder='Aramak istediğiniz değeri yazınız...'>
                 </div>
                 <div class='col mt-4'>
-                    <button class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
+                    <button id="addList" class='w3-button w3-round-xxlarge w3-blue w3-hover-grey' type="submit" form="form1" name='submit' value='Listele'>Listele</button>
                 </div>
                 <div class='col mt-4'>
                     <a href="#mail-me" class="w3-button w3-round-xxlarge w3-green w3-hover-grey">LİSTENİZİ MAİL ATMAK İÇİN TIKLAYIN!</a>
@@ -323,7 +323,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>" 
 
                                 ."</tr>";
                             }
@@ -365,7 +365,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";
                             }
@@ -408,7 +408,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                            "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                             ."</tr>";                        
                         }
@@ -452,7 +452,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
 
@@ -495,7 +495,7 @@
                             "<td>".$row['min_point_2019']."</td>".
                             "<td>".$row['success_order_2020']."</td>".
                             "<td>".$row['success_order_2019']."</td>".
-                            "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
+                            "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"     
 
                             ."</tr>";                        
                         }
@@ -537,7 +537,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -579,7 +579,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -621,7 +621,7 @@
                                 "<td>".$row['min_point_2019']."</td>".
                                 "<td>".$row['success_order_2020']."</td>".
                                 "<td>".$row['success_order_2019']."</td>".
-                                "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                                "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                                 ."</tr>";   
                             }
@@ -660,7 +660,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -698,7 +698,7 @@
                         "<td>".$row['min_point_2019']."</td>".
                         "<td>".$row['success_order_2020']."</td>".
                         "<td>".$row['success_order_2019']."</td>".
-                        "<td><button id=".$row['program_code']." class='w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
+                        "<td><button id=".$row['program_code']." class='test w3-button w3-large w3-circle w3-blue w3-hover-grey'>+</button></td>"      
 
                         ."</tr>";   
                     }
@@ -745,7 +745,7 @@
         </div>    
     </div>
     <div class="col-xs-12 col-sm-offset-4 col-sm-4 mt-30 mb-30">
-        <button id="btnSendMail" type="submit" class="w3-button w3-round-xxlarge w3-blue w3-hover-grey">MAİLİME GÖNDER</button>
+        <button id="btnSendMail" name="btnSendMail" type="submit" class="w3-button w3-round-xxlarge w3-blue w3-hover-grey">MAİLİME GÖNDER</button>
     </div>
 </div>
 

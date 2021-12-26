@@ -43,6 +43,7 @@
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '112358');
     define('DB_NAME', 'tercihrobotu');
+    $html = "";
 
 
     try {
@@ -61,7 +62,7 @@
         #print_r($ids);
     }
 
-    if (!empty($ids))
+    if (!empty($ids) OR isset($_POST['action']))
             {
                 for($i = 0; $i < $arrLength; $i++) {
                     $id = $ids[0][$i];
@@ -107,7 +108,7 @@
 
 
                                 // html content for smart email clients
-                                $html = <<<EOL
+                                $html = $html.<<<EOL
                                 <h1>Welcome</h1>
 
                                 <p>{$row['program_code']}.</p>
@@ -123,22 +124,9 @@
                                 EOL;
 
                             }
+                            
                             // add the content to the mail
-                            if (isset($_POST['btnSendMail'])) {
-    // btnDelete 
-  
-                                $mail->MsgHTML($html);
-                                // add alternate content 
-                                #$mail->AltBody($text);
-
-
-                                // send the mail
-                                if ($mail->Send()) {
-                                   // mail sent correctly
-                                } else {
-                                   die("Uhoh, could not send to {$mail['email']}:" . $mail->ErrorInfo);
-                                }
-                                }
+                            
                             mysqli_free_result($result);
                         }
                         else
@@ -152,6 +140,22 @@
                     }
 
                 }
+
+                if (isset($_POST['action'])) {
+    // btnDelete 
+                                echo "saa";
+                                $mail->MsgHTML($html);
+                                // add alternate content 
+                                #$mail->AltBody($text);
+
+
+                                // send the mail
+                                if ($mail->Send()) {
+                                   // mail sent correctly
+                                } else {
+                                   die("Uhoh, could not send to {$mail['email']}:" . $mail->ErrorInfo);
+                                }
+                                }
             }
 
 
