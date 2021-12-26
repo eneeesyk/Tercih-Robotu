@@ -41,8 +41,8 @@
 
     define('DB_HOST', 'localhost');
     define('DB_USERNAME', 'root');
-    define('DB_PASSWORD', 'root');
-    define('DB_NAME', 'tercih_test');
+    define('DB_PASSWORD', '112358');
+    define('DB_NAME', 'tercihrobotu');
     $html = "";
 
 
@@ -104,7 +104,7 @@
 
 
                                 // set the email address
-                                $mail->AddAddress('enessyedikardess@gmail.com', 'Enes Yedikardes');
+                                $mail->AddAddress($_POST['email'], $_POST['fname']);
 
 
                                 // html content for smart email clients
@@ -142,15 +142,18 @@
                 }
 
                 if (isset($_POST['action'])) {
-                        // btnDelete 
+    // btnDelete 
+                                echo "saa";
                                 $mail->MsgHTML($html);
                                 // add alternate content 
                                 #$mail->AltBody($text);
+
+
                                 // send the mail
                                 if ($mail->Send()) {
                                    // mail sent correctly
                                 } else {
-                                   die("Uhoh, could not send to {$_POST['email']}:" . $mail->ErrorInfo);
+                                   die("Uhoh, could not send to {$mail['email']}:" . $mail->ErrorInfo);
                                 }
                                 }
             }
