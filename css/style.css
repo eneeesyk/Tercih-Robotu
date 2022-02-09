@@ -1,0 +1,57 @@
+body {
+    font-family: "Montserrat";
+  }
+
+  .container-fluid {
+    padding: 7% 15%;
+  }
+
+  .table-sortable th {
+    cursor: pointer;
+  }
+  
+  .table-sortable .th-sort-asc::after {
+    content: "\25B4";
+  }
+  
+  .table-sortable .th-sort-desc::after {
+    content: "\25BE";
+  }
+  
+  .table-sortable .th-sort-asc::after,
+  .table-sortable .th-sort-desc::after {
+    margin-left: 5px;
+  }
+  
+  .table-sortable .th-sort-asc,
+  .table-sortable .th-sort-desc {
+    background: rgba(250, 102, 102, 0.2);
+  }
+  
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  #brand {
+    text-align: center;
+    background-color: #ff4c68;
+    color: #fff;
+  }
+
+  .social-icon{
+    margin: 20px 10px;
+  }
+
+ .footer > p {
+    color: #8f8f8f;
+  }
+
+  .footer > a {
+    color: #202020;
+    text-decoration: none;
+  }
+
+  #footer {
+      text-align: center;
+  }
