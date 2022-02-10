@@ -34,6 +34,63 @@
     </title>
 </head>
 <body>
+    <script>
+
+    function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    function eraseCookie(name) {   
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+
+    $(document).ready(function(){
+        var arr = new Array();
+    $('button.test').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        arr.push(clickBtnValue);
+        var ajaxurl = 'tercih_listem.php',
+        data =  {'id': arr};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            //alert(arr);
+        });
+        $.get("tercih_listem.php?id=" + arr, function(response){
+            //alert(response);
+            setCookie('lastVisited','tercih_listem.php?id=' + arr,7);
+        });
+        
+    });
+     $('#btnSendMail').click(function(){
+        var clickBtnValue = $(this).attr("id");
+        var fname = document.getElementById("fname").value
+        var user_email = document.getElementById("email").value
+        var ajaxurl = 'tercih_listem.php',
+        data =  {'action': clickBtnValue, "id": arr, "fname": fname, "email": user_email};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            //alert("action performed successfully");
+        });
+    });
+    
+});
+</script>
     <?php include 'dbh.php'; ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -60,7 +117,7 @@
                         </a>
                     </li>
                     <li class="navbar-item active">
-                        <a href="tercih_listem.php" class="nav-link px-3">
+                        <a href="javascript:document.location = getCookie('lastVisited')" class="nav-link px-3">
                         <i class="fas fa-lg fa-list-ul"></i> <span style="margin-left:7px;"> TERCİH LİSTEM </span>
                         </a>
                     </li>
@@ -332,7 +389,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"    
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"    
 
                                             ."</tr>";
                                         }
@@ -374,7 +431,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"  
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"  
      
     
 
@@ -419,7 +476,7 @@
                                         "<td>".$row['min_point_2019']."</td>".
                                         "<td>".$row['success_order_2020']."</td>".
                                         "<td>".$row['success_order_2019']."</td>".
-                                        "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"
+                                        "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"
 
                                         ."</tr>";                        
                                     }
@@ -463,7 +520,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
 
                                             ."</tr>";   
 
@@ -506,7 +563,7 @@
                                         "<td>".$row['min_point_2019']."</td>".
                                         "<td>".$row['success_order_2020']."</td>".
                                         "<td>".$row['success_order_2019']."</td>".
-                                        "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                        "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
 
      
 
@@ -550,7 +607,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
 
            
 
@@ -594,7 +651,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
  
            
 
@@ -638,7 +695,7 @@
                                             "<td>".$row['min_point_2019']."</td>".
                                             "<td>".$row['success_order_2020']."</td>".
                                             "<td>".$row['success_order_2019']."</td>".
-                                            "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                            "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
      
  
 
@@ -679,7 +736,7 @@
                                     "<td>".$row['min_point_2019']."</td>".
                                     "<td>".$row['success_order_2020']."</td>".
                                     "<td>".$row['success_order_2019']."</td>".
-                                    "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                    "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
 
                                     ."</tr>";   
                                 }
@@ -717,7 +774,7 @@
                                     "<td>".$row['min_point_2019']."</td>".
                                     "<td>".$row['success_order_2020']."</td>".
                                     "<td>".$row['success_order_2019']."</td>".
-                                    "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
+                                    "<td><button class= 'test' style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-plus-solid.svg'></button></td>"   
     
 
 

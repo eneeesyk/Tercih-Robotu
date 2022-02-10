@@ -80,7 +80,7 @@
     $('button.test').click(function(){
         var clickBtnValue = $(this).attr("id");
         arr.push(clickBtnValue);
-        var ajaxurl = 'ajax.php',
+        var ajaxurl = 'tercih_listem.php',
         data =  {'id': arr};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
@@ -91,7 +91,7 @@
         var clickBtnValue = $(this).attr("id");
         var fname = document.getElementById("fname").value
         var user_email = document.getElementById("email").value
-        var ajaxurl = 'ajax.php',
+        var ajaxurl = 'tercih_listem.php',
         data =  {'action': clickBtnValue, "id": arr, "fname": fname, "email": user_email};
         $.post(ajaxurl, data, function (response) {
             // Response div goes here.
@@ -109,6 +109,7 @@
     require __DIR__.'/PHPMailer/src/Exception.php';
     require __DIR__.'/PHPMailer/src/PHPMailer.php';
     require __DIR__.'/PHPMailer/src/SMTP.php';
+    session_start();
 
 ?>
 
@@ -231,18 +232,124 @@
                     <?php 
                             if (isset($_POST['id'])) {
                                 $ids[] = $_POST['id'];
-                                $arrLength = count($_POST['id']);;
+                                $arrLength = count($_POST['id']);
+
                                 
                                 #print_r($ids);
+                            } else if(isset($_GET['id'])){
+                                $get_ids = explode (",", $_GET['id']);
+                                print_r($get_ids);
+                                $idsLength = count($get_ids);
+                                print($idsLength);
+
+                                for($i = 0; $i < $idsLength; $i++) {
+                                    $id = $get_ids[$i];
+                                    //$_SESSION["id"] .= $id;
+
+                                    //setcookie('ids',$id,time()+60*60*24*365);
+                                    // 'Force' the cookie to exists
+                                    // $_COOKIE['ids'] = $id;
+                                    //echo $id;
+                                    $sql = "SELECT uni_name, department, program_code, point_type, coalesce(scholarship, 'Devlet') ,min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE program_code='$id'";
+                                    //echo $sql;       
+                                    if ($result = mysqli_query($conn, $sql))
+                                    {
+                                        if (mysqli_num_rows($result) > 0)
+                                        {
+                                            while ($row = mysqli_fetch_array($result))
+                                            {
+                                                echo "</tr>".
+                
+                                                "<td>".$row['program_code']."</td>".
+                                                "<td>".$row['uni_name']."</td>".
+                                                "<td>".$row['department']."</td>".
+                                                "<td>".$row['point_type']."</td>".
+                                                "<td>".$row["coalesce(scholarship, 'Devlet')"]."</td>".
+                                                "<td>".$row['min_point_2020']."</td>".
+                                                "<td>".$row['min_point_2019']."</td>".
+                                                "<td>".$row['success_order_2020']."</td>".
+                                                "<td>".$row['success_order_2019']."</td>".
+                                                "<td><button style='background-color: transparent; border: 0; width: 40px; height: 40px;' id=".$row['program_code']." onclick='changeImageAndAddList(this.id)'><img src='images/circle-minus-solid.svg'></button></td>"
+                                                
+                                                ."</tr>";
+                
+                                                $mail = new PHPMailer();
+                                                $mail->IsSMTP();
+                                                $mail->SMTPAuth = true;
+                                                $mail->Host = 'smtp.gmail.com';
+                                                $mail->Port = 587;
+                                                $mail->SMTPSecure = 'tls';
+                                                $mail->Username = 'totallytestmail@gmail.com';
+                                                $mail->Password = 'test123test';
+                                                $mail->SetFrom('totallytestmail@gmail.com');
+                                                #$mail->AddReplyTo('you@somewhereelse.com');
+                                                $mail->IsHTML(TRUE);
+
+
+                                                // set the email address
+                                                $mail->AddAddress($email, $name);
+
+                                                $html = $html.<<<EOL
+                                                <h1>Hoşgeldiniz işte listeniz..</h1>
+
+                                                <table id='myTable' class='table content-table table-sortable table-bordered table-striped'>
+                                                <thead class='w3-blue'>
+                                                    <tr>
+                                                        <th>Program Kodu</th>
+                                                        <th>Üniversite</th>
+                                                        <th>Bölüm</th>
+                                                        <th>Puan Türü</th>
+                                                        <th>Burs</th>
+                                                        <th>Taban Puan 2020</th>
+                                                        <th>Taban Puan 2019</th>
+                                                        <th>Taban Sıralama 2020</th>
+                                                        <th>Taban Sıralama 2019</th>
+                                                        <th>Ekle</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id='myTableBody'>
+                                                    
+                                                </tr>
+                                                    <td>{$row['program_code']}.</td>
+                                                    <td>{$row['uni_name']}.</td>
+                                                    <td>{$row['department']}.</td>
+                                                    <td>{$row['point_type']}.</td>
+                                                    <td>{$row["coalesce(scholarship, 'Devlet')"]}.</td>
+                                                    <td>{$row['min_point_2020']}.</td>
+                                                    <td>{$row['min_point_2019']}.</td>
+                                                    <td>{$row['success_order_2020']}.</td>
+                                                    <td>{$row['success_order_2019']}.</td>
+                                                </tr>
+                                                EOL;
+                                            }
+                                            // add the content to the mail
+                                            mysqli_free_result($result);
+                                        }
+                                        else
+                                        {
+                                            echo "<script type='text/JavaScript'> alert('Something went wrong...); </script>";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "ERROR: Could not execute $sql" . mysqli_error($conn);
+                                    }
+
+                                }
                             }
 
                             if (!empty($ids) OR isset($_POST['action']))
                             {
                                 for($i = 0; $i < $arrLength; $i++) {
                                     $id = $ids[0][$i];
-                                    echo $id;
+                                    //$_SESSION["id"] .= $id;
+
+                                    //setcookie('ids',$id,time()+60*60*24*365);
+                                    // 'Force' the cookie to exists
+                                    // $_COOKIE['ids'] = $id;
+                                    //echo $id;
                                     $sql = "SELECT uni_name, department, program_code, point_type, coalesce(scholarship, 'Devlet') ,min_point_2020, min_point_2019, success_order_2020, success_order_2019 FROM sayfa2 WHERE program_code='$id'";
-                                    echo $sql;       
+                                    //echo $sql;       
                                     if ($result = mysqli_query($conn, $sql))
                                     {
                                         if (mysqli_num_rows($result) > 0)
