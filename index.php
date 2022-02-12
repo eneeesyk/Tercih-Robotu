@@ -28,6 +28,16 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     <script src='https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js'></script>
+    
+       <!-- alertJavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!--alert CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+
+    <style>
+        .ajs-message { color: white;  background-color: #d9edf7;  border-color: #31708f;}
+     </style>
+
 
     <title>
         İstanbul Ticaret Üniversitesi Tercih Platformu
