@@ -38,6 +38,7 @@
 
     function setCookie(name,value,days) {
         var expires = "";
+        //alert(value);
         if (days) {
             var date = new Date();
             date.setTime(date.getTime() + (days*24*60*60*1000));
@@ -45,6 +46,7 @@
         }
         document.cookie = name + "=" + (value || "")  + expires + "; path=/";
     }
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -55,25 +57,40 @@
         }
         return null;
     }
+
     function eraseCookie(name) {   
         document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 
+    function checkLocation(){
+        if (getCookie('lastVisited') == null){
+            return "tercih_listem.php";
+        }else{
+            return getCookie('lastVisited');
+        }
+    }
+    </script>
+    <script>
 
     $(document).ready(function(){
         var arr = new Array();
     $('button.test').click(function(){
         var clickBtnValue = $(this).attr("id");
         arr.push(clickBtnValue);
-        var ajaxurl = 'tercih_listem.php',
+        var ajaxurl = 'tercih_listem.php';
         data =  {'id': arr};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            //alert(arr);
-        });
+        //alert(arr);
+        
         $.get("tercih_listem.php?id=" + arr, function(response){
             //alert(response);
-            setCookie('lastVisited','tercih_listem.php?id=' + arr,7);
+            //setCookie('lastVisited','tercih_listem.php?id=' + arr,7);
+            if (getCookie("lastVisited") == null) {
+                alert("sea");
+                setCookie('lastVisited','tercih_listem.php?id=' + arr,7);
+            } else {
+                setCookie('lastVisited', getCookie('lastVisited') + "," + arr, 7);
+            }
+           
         });
         
     });
@@ -90,7 +107,7 @@
     });
     
 });
-</script>
+    </script>
     <?php include 'dbh.php'; ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -117,7 +134,7 @@
                         </a>
                     </li>
                     <li class="navbar-item active">
-                        <a href="javascript:document.location = getCookie('lastVisited')" class="nav-link px-3">
+                        <a href="javascript:document.location = checkLocation();" class="nav-link px-3">
                         <i class="fas fa-lg fa-list-ul"></i> <span style="margin-left:7px;"> TERCİH LİSTEM </span>
                         </a>
                     </li>

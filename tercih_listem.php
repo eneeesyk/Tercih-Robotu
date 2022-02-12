@@ -74,33 +74,7 @@
         </div>
     </section>
 
-<script>
-    $(document).ready(function(){
-        var arr = new Array();
-    $('button.test').click(function(){
-        var clickBtnValue = $(this).attr("id");
-        arr.push(clickBtnValue);
-        var ajaxurl = 'tercih_listem.php',
-        data =  {'id': arr};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            //alert(arr);
-        });
-    });
-     $('#btnSendMail').click(function(){
-        var clickBtnValue = $(this).attr("id");
-        var fname = document.getElementById("fname").value
-        var user_email = document.getElementById("email").value
-        var ajaxurl = 'tercih_listem.php',
-        data =  {'action': clickBtnValue, "id": arr, "fname": fname, "email": user_email};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            //alert("action performed successfully");
-        });
-    });
-    
-});
-</script>
+
 
 <?php
     
@@ -109,7 +83,10 @@
     require __DIR__.'/PHPMailer/src/Exception.php';
     require __DIR__.'/PHPMailer/src/PHPMailer.php';
     require __DIR__.'/PHPMailer/src/SMTP.php';
-    session_start();
+    //session_start();
+    $html = "";
+    $email = "";
+    $name = "";
 
 ?>
 
@@ -238,7 +215,7 @@
                                 #print_r($ids);
                             } else if(isset($_GET['id'])){
                                 $get_ids = explode (",", $_GET['id']);
-                                print_r($get_ids);
+                                #print_r($get_ids);
                                 $idsLength = count($get_ids);
                                 print($idsLength);
 
