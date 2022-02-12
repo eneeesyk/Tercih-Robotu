@@ -7,10 +7,13 @@ function changeImageAndAddList(id) {
     if (document.getElementById(id).firstChild.getAttribute('src') == "images/circle-plus-solid.svg") 
     {
         document.getElementById(id).firstChild.src = "images/circle-minus-solid.svg";
+        alertify.success('Tercih Listenize başarıyla eklendi!');
     }
     else 
     {
         document.getElementById(id).firstChild.src = "images/circle-plus-solid.svg";
+        alertify.success('Tercih Listenizden başarıyla silindi!');
+
     }
 }
 
